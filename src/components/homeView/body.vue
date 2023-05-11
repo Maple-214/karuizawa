@@ -68,6 +68,9 @@
 </template>
 <script>
 import "/src/assets/slick/slick.min.js"
+import "/src/assets/slick/slick-theme.css"
+import "/src/assets/slick/slick.css"
+
 import imgBadge from '@/assets/img/badge_a1_g.png'
 export default {
     name: '',
