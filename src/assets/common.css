@@ -2059,15 +2059,15 @@ container
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv dt {
   color: #e9546b;
   background-color: #fdf2f4;
-  background-image: url(../img/common/img-menu-satei.jpg);
+  background-image: url(../assets/img/img-menu-satei.jpeg);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-main dt {
-  background-image: url(../img/common/img-menu-sell.jpg);
+  background-image: url(../assets/img/img-menu-sell.jpeg);
 }
 
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-main dt {
-  background-image: url(../img/common/img-menu-lend.jpg);
+  background-image: url(../assets/img/img-menu-lend.jpeg);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list dt,
@@ -2080,19 +2080,19 @@ container
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type dt,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type dt,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type dt {
-  background-image: url(../img/common/img-menu-search-type.jpg);
+  background-image: url(../assets/img/img-menu-search-type.jpeg);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-map dt,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-map dt,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-map dt {
-  background-image: url(../img/common/img-menu-search-map.jpg);
+  background-image: url(../assets/img/img-menu-search-map.jpeg);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-other dt,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-other dt,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-other dt {
-  background-image: url(../img/common/img-menu-search-other.jpg);
+  background-image: url(../assets//img/img-menu-search-other.jpeg);
 }
 
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type dt span {
@@ -2260,17 +2260,17 @@ container
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-default,
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-default {
-  background-image: url(../img/karuizawa/common/icon-satei01.png);
+  background-image: url(../assets/img/icon-satei01.png);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-both,
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-both {
-  background-image: url(../img/karuizawa/common/icon-satei02.png);
+  background-image: url(../assets/img/icon-satei02.png);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-instantly,
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-instantly {
-  background-image: url(../img/karuizawa/common/icon-satei03.png);
+  background-image: url(../assets/img/icon-satei03.png);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a::after,
@@ -7427,19 +7427,19 @@ a.c-linkBtn_off,
 .tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list.list-type dt,
 .tenpoTop .l-rent .l-rent_2nd .l-rent_2nd_list.list-type dt,
 .tenpoTop .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type dt {
-  background-image: url(../img/common/img-menu-search-type.jpg);
+  background-image: url(../assets/img/img-menu-search-type.jpg);
 }
 
 .tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list.list-map dt,
 .tenpoTop .l-rent .l-rent_2nd .l-rent_2nd_list.list-map dt,
 .tenpoTop .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-map dt {
-  background-image: url(../img/common/img-menu-search-map.jpg);
+  background-image: url(../assets/img/img-menu-search-map.jpg);
 }
 
 .tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list.list-other dt,
 .tenpoTop .l-rent .l-rent_2nd .l-rent_2nd_list.list-other dt,
 .tenpoTop .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-other dt {
-  background-image: url(../img/common/img-menu-search-other.jpg);
+  background-image: url(../assets/img/img-menu-search-other.jpg);
 }
 
 .tenpoTop .l-rent .l-rent_2nd .l-rent_2nd_list.list-type dt span {
