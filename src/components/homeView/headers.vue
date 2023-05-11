@@ -245,7 +245,7 @@
                                 </div>
                             </li>
                             <li itemprop="name">
-                                <a href="https://www.royal-resort.co.jp/karuizawa/staff/" class="tenpo">店舗案内</a>
+                                <a href="" class="tenpo">店舗案内</a>
                             </li>
                         </ul>
                         <div class="c-fixBtn_today u-onlyMobile lazyload"><a href="" class="icon-info01">今日の軽井沢</a></div>
@@ -297,40 +297,75 @@ export default {
 
     },
     mounted() {
-        $(".l-nav_menu_secondBtn > .is-btn").on("click", function () {
-            var resultActiveMenu = $(".l-nav_tenpo").find(".-active");
-            var secondBtn = $(this).parent(".l-nav_menu_secondBtn");
-
-            if ($(secondBtn).hasClass("-active")) {
-                $(secondBtn).removeClass("-active");
-                $(this).next(".l-nav_menu_secondWrap").slideUp().removeClass("-active");
-            } else if (resultActiveMenu.length) {
-                $(".l-nav_menu_secondBtn").not(this).removeClass("-active");
-                $(".l-nav_menu_secondWrap").slideUp().removeClass("-active");
-                $(secondBtn).toggleClass("-active");
-                $(this)
-                    .next(".l-nav_menu_secondWrap")
-                    .slideToggle()
-                    .toggleClass("-active");
-                return false;
-            } else {
-                $(secondBtn).toggleClass("-active");
-                $(this)
-                    .next(".l-nav_menu_secondWrap")
-                    .slideToggle()
-                    .toggleClass("-active");
-                return false;
-            }
-        });
-
-        $(".c-linkClose").on("click", function () {
-            $(".l-nav_menu_secondBtn").not(this).removeClass("-active");
-            $(".l-nav_menu_secondWrap").slideUp().removeClass("-active");
-        });
-
+        this.headerClick()
+        $(window).on('load scroll', this.headerFollow());
+    },
+    beforeDestroy() {
+        $(window).off('scroll', this.headerFollow())
     },
     methods: {
+        headerClick() {
+            // 菜单栏切换
+            $(".l-nav_menu_secondBtn > .is-btn").append('<span class="c-menu_arrow"></span>')
+            $(".c-hamburger_normal").on("click", function () {
+                $(this).toggleClass("active");
+                $(".l-nav").slideToggle();
+            });
+            $(".c-hamburger_tenpo").on("click", function () {
+                $(this).toggleClass("active");
+                $(this).parents(".l-header_nav-tempo").toggleClass("active");
 
+                $(".l-nav_tenpo").slideToggle();
+            });
+
+            // header一系列交互
+            $(".l-nav_menu_secondBtn > .is-btn").on("click", function () {
+                var resultActiveMenu = $(".l-nav_tenpo").find(".-active");
+                var secondBtn = $(this).parent(".l-nav_menu_secondBtn");
+                if ($(secondBtn).hasClass("-active")) {
+                    $(secondBtn).removeClass("-active");
+                    $(this).next(".l-nav_menu_secondWrap").slideUp().removeClass("-active");
+                } else if (resultActiveMenu.length) {
+                    $(".l-nav_menu_secondBtn").not(this).removeClass("-active");
+                    $(".l-nav_menu_secondWrap").slideUp().removeClass("-active");
+                    $(secondBtn).toggleClass("-active");
+                    $(this)
+                        .next(".l-nav_menu_secondWrap")
+                        .slideToggle()
+                        .toggleClass("-active");
+                    return false;
+                } else {
+                    $(secondBtn).toggleClass("-active");
+                    $(this)
+                        .next(".l-nav_menu_secondWrap")
+                        .slideToggle()
+                        .toggleClass("-active");
+                    return false;
+                }
+            });
+            $(".c-linkClose").on("click", function () {
+                $(".l-nav_menu_secondBtn").not(this).removeClass("-active");
+                $(".l-nav_menu_secondWrap").slideUp().removeClass("-active");
+            });
+        },
+        headerFollow() {
+            var $win = $(window),
+                $main = $('.l-contents'),
+                $nav = $('.l-header_nav-tempo'),
+                navHeight = $nav.outerHeight(),
+                navPos = $nav.offset().top,
+                fixedClass = 'is-fixed';
+            $win.on('load scroll', function () {
+                var value = $(this).scrollTop();
+                if (value > navPos) {
+                    $nav.addClass(fixedClass);
+                    $main.css('margin-top', navHeight);
+                } else {
+                    $nav.removeClass(fixedClass);
+                    $main.css('margin-top', '0');
+                }
+            });
+        }
     }
 };
 </script>
