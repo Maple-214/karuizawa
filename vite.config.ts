@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import vue2 from '@vitejs/plugin-vue2'
 import vue2Jsx from '@vitejs/plugin-vue2-jsx'
+import inject from '@rollup/plugin-inject'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +14,11 @@ export default defineConfig({
     legacy({
       targets: ['ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+    }),
+    inject({
+      $: "jquery",  // 这里会自动载入 node_modules 中的 jquery
+      jQuery: "jquery",
+      "windows.jQuery": "jquery"
     })
   ],
   resolve: {
