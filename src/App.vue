@@ -9,4 +9,5 @@ import HomeView from './views/homeView.vue'
 </template>
 
 <style scoped>
+
 </style>

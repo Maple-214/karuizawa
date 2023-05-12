@@ -1,21 +1,14 @@
 @import "./reset.css";
 @import "./common.css";
-
-
-html {
-  font-size: 62.5%;
-  height: 100%;
+body {
+    overflow-x: hidden;
+    /* overflow: visible; */
+}
+html,
+body {
+	scroll-behavior: smooth;
 }
 
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  font-family: "游ゴシック", YuGothic, Meiryo, sans-serif;
-  line-height: 1.75;
-  font-size: 16px;
-  font-size: 1.6rem;
-  font-weight: 500;
-  font-feature-settings: "palt";
+.bff42b12-84e4-4c42-b421-7ba1593b5383 {
+    opacity: 0;
 }

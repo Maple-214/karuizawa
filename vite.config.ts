@@ -19,11 +19,14 @@ export default defineConfig({
       $: "jquery",  // 这里会自动载入 node_modules 中的 jquery
       jQuery: "jquery",
       "windows.jQuery": "jquery"
-    })
+    }),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    host: '0.0.0.0',
   }
 })
