@@ -7211,13 +7211,13 @@ a.c-linkBtn_off,
 
 .tenpoTop .tab_content .l-sell .l-sell_2nd {
   width: 100%;
-  background: #F2F9EC url(../img/common/bg-tab-sell.png) no-repeat right center;
+  background: #F2F9EC url(../assets/img/bg-tab-sell.png) no-repeat right center;
   background-size: contain;
 }
 
 .tenpoTop .tab_content .l-lend .l-lend_2nd {
   width: 100%;
-  background: #F2F9EC url(../img/common/bg-tab-lend.png) no-repeat right center;
+  background: #F2F9EC url(../assets/img/bg-tab-lend.png) no-repeat right center;
   background-size: contain;
 }
 
@@ -7406,15 +7406,15 @@ a.c-linkBtn_off,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv dt {
   color: #e9546b;
   background-color: #fdf2f4;
-  background-image: url(../img/common/img-menu-satei.jpg);
+  background-image: url(../assets/img/img-menu-satei.jpeg);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-main dt {
-  background-image: url(../img/common/img-menu-sell.jpg);
+  background-image: url(../assets/img/img-menu-sell.jpeg);
 }
 
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-main dt {
-  background-image: url(../img/common/img-menu-lend.jpg);
+  background-image: url(../assets/img/img-menu-lend.jpeg);
 }
 
 .tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list dt,

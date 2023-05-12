@@ -140,6 +140,7 @@ reset & default & font
    html {
     box-sizing: border-box;
     overflow-y: scroll;
+    overflow-x: hidden;
     /* All browsers without overlaying scrollbars */
     -webkit-text-size-adjust: 100%;
     /* iOS 8+ */
