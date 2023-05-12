@@ -15,5 +15,5 @@ Vue.config.devtools = true;
 new Vue({
   router,
   pinia: createPinia(),
-  render: (h) => h(App)
+  render: (h: (arg0: any) => any) => h(App)
 }).$mount('#app')
