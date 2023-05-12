@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import Headers from '@/components/homeView/headers.vue'
+import Headers from '@/components/headers.vue'
 import Bodys from '@/components/homeView/body.vue'
 import Breadcrumb from '@/components/breadcrumb.vue'
+import Footers from '@/components/footers.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Breadcrumb from '@/components/breadcrumb.vue'
         <Headers/>
         <Breadcrumb/>
         <Bodys/>
+        <Footers/>
     </div>
 </template>
 

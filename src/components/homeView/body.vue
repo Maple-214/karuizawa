@@ -437,7 +437,7 @@
 
             </div>
         </div>
-        <Footers />
+        <!-- <Footers /> -->
     </div>
 </template>
 <script>
@@ -447,14 +447,14 @@ import "/src/assets/slick/slick-theme.css"
 import "/src/assets/slick/slick.css"
 import Pickup from './pickup.vue'
 import Advlists from './advlists.vue'
-import Footers from './footers.vue'
+// import Footers from './footers.vue'
 import imgBadge from '@/assets/img/badge_a1_g.png'
 export default {
     name: '',
     components: {
         Pickup,
         Advlists,
-        Footers
+        // Footers
     },
     mixins: [],
     props: {
