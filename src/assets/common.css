@@ -1152,6 +1152,11 @@ container
   z-index: 9999;
 }
 
+.h-sticky {
+  position: sticky;
+  top: 0;
+}
+
 @media screen and (max-width: 768px) {
   .l-header {
     border-bottom: none;

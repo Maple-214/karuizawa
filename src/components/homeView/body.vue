@@ -554,12 +554,6 @@ export default {
         this.$adaptHeight()
         this.initSlick()
         this.cLagPdTnoneHandler()
-        $(window).on('resize', ()=>{
-            this.$adaptHeight()
-        });
-    },
-    beforeDestroy() {
-        $(window).off('resize', this.$adaptHeight())
     },
     methods: {
         initSlick() {

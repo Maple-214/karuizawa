@@ -1,5 +1,5 @@
 <template>
-    <header class="l-header l-header_tenpo karuizawa">
+    <header class="l-header h-sticky l-header_tenpo karuizawa">
         <div class="l-header_nav-tempo lazyloaded">
             <div class="l-header_inner lazyloaded">
                 <div class="l-header_tenpoName lazyloaded">
@@ -298,10 +298,10 @@ export default {
     },
     mounted() {
         this.headerClick()
-        $(window).on('scroll', this.headerFollow());
+        // $(window).on('load scroll', this.headerFollow());
     },
     beforeDestroy() {
-        $(window).off('scroll', this.headerFollow())
+        // $(window).off('scroll', this.headerFollow())
     },
     methods: {
         headerClick() {
