@@ -5,6 +5,7 @@ import HomeView from './views/homeView.vue'
 <template>
   <div id="app">
     <HomeView />
+    1
   </div>
 </template>
 

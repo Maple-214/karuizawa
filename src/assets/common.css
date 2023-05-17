@@ -7613,17 +7613,17 @@ a.c-linkBtn_off,
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-default,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-default {
-  background-image: url(../img/karuizawa/common/icon-satei01.png);
+  background-image: url(./img/icon-satei01.png);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-both,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-both {
-  background-image: url(../img/karuizawa/common/icon-satei02.png);
+  background-image: url(./img/icon-satei02.png);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-instantly,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-instantly {
-  background-image: url(../img/karuizawa/common/icon-satei03.png);
+  background-image: url(./img/icon-satei03.png);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a::after,
