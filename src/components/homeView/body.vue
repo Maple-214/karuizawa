@@ -98,11 +98,11 @@
                 <section class="">
                     <div class="p-tabMenu c-tabMenu_content lazyloaded">
                         <div class="tab_content lazyloaded is-show" id="tab1_content" style="display: block;">
-                            <Pickup :sourceData="sourceData1" />
-                            <Pickup :sourceData="sourceData1" />
-                            <Pickup :sourceData="sourceData1" />
-                            <Pickup :sourceData="sourceData1" />
-                            <Pickup :sourceData="sourceData1" />
+                            <Pickup :sourceData="sourceData1" SectionClassName="l-contSection" />
+                            <Pickup :sourceData="sourceData1" SectionClassName="l-contSection" />
+                            <Pickup :sourceData="sourceData1" SectionClassName="l-contSection" />
+                            <Pickup :sourceData="sourceData1" SectionClassName="l-contSection" />
+                            <Pickup :sourceData="sourceData1" SectionClassName="l-contSection" />
                         </div>
                         <div class="tab_content lazyloaded" id="tab2_content" style="display: none;">
                             <div class="tab_content_description l-form lazyloaded">
@@ -509,7 +509,9 @@ export default {
                     { id: 10, src: 'https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400' },
                     { id: 11, src: 'https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400' },
                 ],
-                title: '新着物件'
+                title: '新着物件',
+                showAll: true,
+                isdetail: false
             },
             advlists1: [
                 { id: 1, src: 'https://www.royal-resort.co.jp/src/img/topic_images/karuizawa/bnr-resortwork.jpg.webp' },

@@ -80,23 +80,12 @@
             >
               <button
                 class="js-modalWrap_estateDetail_item"
-                type="button"
-                data-index="0"
                 data-micromodal-trigger="js-swiper-modal"
+                data-index="0"
               >
-                <img
-                  src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707"
-                  alt=""
-                  data-src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707"
-                  class="lazyloaded"
-                /><noscript
-                  ><img
-                    src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707"
-                    alt=""
-                    data-eio="l"
-                /></noscript>
-                <!-- <p class="c-caption">商売可能な近隣商業地域！町内では希少な物件です！</p> --></button
-              ><button
+                <img :src="detail_list[0]" alt="" class="lazyloaded" />
+              </button>
+              <button
                 class="p-mv-photo__floor-plan-btn c-floor-plan-btn"
                 type="button"
                 data-micromodal-trigger="js-floor-plan-modal"
@@ -123,43 +112,556 @@
             <dl class="outline_main">
               <dt class="c-price">価格</dt>
               <dd>
-                <span class="u-wf_num">6,800</span>万円
+                <span class="u-wf_num">8,250</span>万円
 
                 <a href="#simulation" class="simulation-btn"
                   >￥ローンシミュレーション</a
                 >
               </dd>
 
+              <dt>間取り</dt>
+              <dd>3LDK</dd>
+
+              <dt>建物面積</dt>
+              <dd>196.52m²</dd>
               <dt>土地面積</dt>
-              <dd>266.12m²</dd>
+              <dd>1013m²</dd>
             </dl>
             <ul class="outline_sub">
-              <li class="c-location">旧軽井沢</li>
-              <li class="c-traffic">北陸新幹線「軽井沢」駅 徒歩約9分</li>
+              <li class="c-location">中軽井沢（北部）</li>
+              <li class="c-traffic">
+                しなの鉄道線「中軽井沢」駅 車約9分（約4.4km）
+              </li>
+              <li class="c-structure">木造 2階建</li>
+            </ul>
+            <ul class="outline_link-btn">
+              <li><a href="#movie" class="ico-movie">動画掲載物件</a></li>
             </ul>
           </div>
         </section>
+        <section class="l-contSection">
+          <div class="l-innerWrap lazyloaded">
+            <div class="js-modalWrap_estateDetail atami lazyloaded">
+              <a
+                v-for="(item, index) in transFormDetailList"
+                :key="item"
+                class="js-modalWrap_estateDetail_item"
+                href="javascript:void(0);"
+                :data-index="index + 1"
+                data-micromodal-trigger="js-swiper-modal"
+              >
+                <div class="c-pic lazyloaded">
+                  <img :src="item" class="lazyloaded" />
+                </div>
+                <p class="c-caption">スーパーデリシア軽井沢店まで約1.2ｋｍ</p>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="l-innerWrap m-top l-contSection">
+          <div class="c-youtube c-infoBox disp_youtube lazyloaded">
+            <iframe
+              ref="playRef"
+              id="disp_youtube"
+              class="lazyload"
+              :style="showPlay ? 'display: block' : 'display: none'"
+              frameborder="0"
+              allowfullscreen="1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              title="C1-424「中軽井沢　千ヶ滝西区からまつの森　アメリカンハウス」太陽光発電、全館集中冷暖房で一年中快適！ビルトインガレージ設備！ドッグランあり！しなの鉄道線「中軽井沢」駅 車約9分（約4.4km）"
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/C_ezHVd1EwA?playsinline=1&amp;rel=0&amp;loop=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.royal-resort.co.jp&amp;widgetid=1"
+              data-gtm-yt-inspected-8="true"
+            ></iframe>
+          </div>
+          <!-- <div
+            v-show="!showPlay"
+            @click="showPlayHandler"
+            class="c-youtube c-infoBox disp_youtube lazyloaded"
+            id="movie"
+          >
+            <img
+              class="c-youtube-thum lazyloaded"
+              src="https://img.youtube.com/vi/C_ezHVd1EwA/hqdefault.jpg"
+            />
+            <p class="c-youtbe-ico">
+              <img
+                src="https://www.royal-resort.co.jp/src/img/common/icon-video.png"
+                alt="You Tubeのアイコン"
+                class="lazyloaded"
+              />
+            </p>
+          </div> -->
+          <div id="info_detail" class="c-infoBox lazyloaded">
+            <div class="c-title_sub lazyloaded">
+              <h3 class="c-titleText">物件詳細</h3>
+            </div>
+
+            <div class="l-table lazyloaded">
+              <table class="c-dataTable c-dataTable_deco">
+                <tbody>
+                  <tr>
+                    <th colspan="1">所在地</th>
+                    <td colspan="3">長野県北佐久郡軽井沢町長倉</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">交通</th>
+                    <td colspan="3">
+                      しなの鉄道線「中軽井沢」駅 車約9分（約4.4km）
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>建物面積</th>
+                    <td>196.52m² （59.44坪）</td>
+                    <th>土地面積</th>
+                    <td>1013m² （306.43坪）</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">構造・階数</th>
+                    <td colspan="3">
+                      木造 2階建
+
+                      <br />その他
+                    </td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">私道負担面積</th>
+                    <td colspan="3">無</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">セットバック</th>
+                    <td colspan="3">不要</td>
+                  </tr>
+
+                  <tr>
+                    <th>建ぺい率</th>
+                    <td>20%</td>
+                    <th>容積率</th>
+                    <td>20%</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">設備</th>
+                    <td colspan="3">２階洗面台、浴室に窓</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">その他設備</th>
+                    <td colspan="3">
+                      電気：中部電力　ガス：無オール電化　給湯：オール電化　水道：私営水道　汚水・雑排水：浄化槽
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>現況</th>
+                    <td>利用中</td>
+                    <th>取引態様</th>
+                    <td>媒介</td>
+                  </tr>
+                  <tr>
+                    <th>引渡条件</th>
+                    <td>相談</td>
+                    <th>引渡時期</th>
+                    <td>相談</td>
+                  </tr>
+                  <tr>
+                    <th>築年月</th>
+                    <td>平成29年1月</td>
+                    <th>土地権利</th>
+                    <td>所有権</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">備考</th>
+                    <td colspan="3">
+                      現況：居住中　■事前予約要　■任意管理　■引渡し時期：要相談　　C1-424
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="c-dataTable c-dataTable_deco">
+                <tbody>
+                  <tr>
+                    <th colspan="1">その他費用</th>
+                    <td colspan="3">
+                      参考固都税額（令和3年度） : 209,900円/年<br />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="c-dataTable c-dataTable_deco">
+                <tbody>
+                  <tr>
+                    <th>都市計画区域区分</th>
+                    <td>非線引き区域</td>
+                    <th>地目</th>
+                    <td>山林</td>
+                  </tr>
+                  <tr>
+                    <th>区画整理</th>
+                    <td>無</td>
+                    <th>都市計画道路</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">地域地区街区</th>
+                    <td colspan="3"></td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">用途地域</th>
+                    <td colspan="3">第一種低層住居専用地域</td>
+                  </tr>
+
+                  <tr>
+                    <th colspan="1">地勢</th>
+                    <td colspan="3">傾斜地</td>
+                  </tr>
+
+                  <tr>
+                    <th colspan="1">接道状況</th>
+                    <td colspan="3">一方</td>
+                  </tr>
+                  <tr>
+                    <th colspan="1">主な接道</th>
+                    <td colspan="3">
+                      私道、北、幅員：6m、接道長さ：22m、舗装あり
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th colspan="1">法令制限</th>
+                    <td colspan="3">景観法、自然公園法</td>
+                  </tr>
+
+                  <tr>
+                    <th colspan="1">駐車場</th>
+                    <td colspan="3">有(敷地内)</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="note lazyloaded">
+                <ul class="annotation">
+                  <li>
+                    更新日：2023年05月22日　 次回更新予定日：2023年06月05日
+                  </li>
+
+                  <li>※間取りの「S」はサービスルーム（納戸）です</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="" class="l-flex l-flex_spBlock c-infoBox files lazyloaded">
+            <div class="l-flex_item c-pic_scaling lazyloaded">
+              <a
+                href="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_1.jpg?iid=101390208"
+                class="jc-luminous"
+                ><img
+                  src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_1.jpg?iid=101390208"
+                  alt=""
+                  data-src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_1.jpg?iid=101390208"
+                  class="lazyload"
+                />
+                <p class="c-icon">
+                  <img :src="iconScalingPlus" class="js-js-deSvg lazyload" />
+                </p>
+              </a>
+            </div>
+
+            <div class="l-flex_item comment lazyloaded">
+              <div class="c-boxBg_bluBri lazyloaded">
+                <p class="c-tits">売主様より</p>
+                <p>
+                  長年家族で所有してきた土地ですが、管理も大変になってきたため売却することとなりました。駅や本通りへのアクセスが良く、ここ最近ではお店等も増えているようで賑やかになっていると聞いております。永住やご商売にもお使いいただけると存じます。お気に召していただける方との良いご縁をお待ちしております。何卒、宜しくお願いいたします。
+                </p>
+              </div>
+              <div class="c-boxBg_bluBri lazyload">
+                <p class="c-tits">担当者より</p>
+                <p>
+                  北陸新幹線軽井沢駅から徒歩約9分の距離に日当たりの良い平坦地が出ました！定住用・別荘用・商売用、様々な用途でご計画いただける貴重なお土地です！また、現在は青空駐車場として利用しており、木々もほとんどなく造成費用も抑えることができるのも魅力の一つです！ご興味がございましたら、ぜひお早めにご見学にいらしてください！皆様のお問合せを心よりお待ちしております。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="simulation" class="c-infoBox lazyload">
+            <div class="c-title_sub lazyload">
+              <h3 class="c-titleText">月々のお支払いの目安を調べる</h3>
+            </div>
+            <div class="pg-detail-office-wrapper lazyload">
+              <div class="sim lazyload">
+                <div class="sim-input lazyload">
+                  <form class="esInputForm" novalidate="novalidate">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>購入価格</th>
+                          <td class="input">
+                            6,800 万円
+                            <input
+                              type="hidden"
+                              id="hiddenPrice"
+                              name="hiddenPrice"
+                              class="hiddenPrice esNumArea"
+                              value="68000000"
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>自己資金</th>
+                          <td class="input">
+                            <input
+                              type="number"
+                              onfocus="ga('send', 'event', 'form1', 'focus', '1jikosikin', null, true);"
+                              name="esDownPayment"
+                              class="esDownPayment esNumArea"
+                            />万円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>借入金額</th>
+                          <td class="input">
+                            <input
+                              type="number"
+                              onfocus="ga('send', 'event', 'form1', 'focus', '2kariire', null, true);"
+                              name="esLoan"
+                              class="esLoan esNumArea"
+                              value=""
+                            />万円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            ボーナス返済部分
+                            <p class="note">※ボーナス返済額×年2回×返済期間</p>
+                          </th>
+                          <td class="input">
+                            <input
+                              type="number"
+                              onfocus="ga('send', 'event', 'form1', 'focus', '3bo-nasu', null, true);"
+                              name="esBonus"
+                              class="esBonus esNumArea"
+                            />万円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>金利</th>
+                          <td class="input">
+                            <input
+                              type="number"
+                              onfocus="ga('send', 'event', 'form1', 'focus', '4kinri', null, true);"
+                              name="esRate"
+                              class="esRate esNumArea"
+                            />　％
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>返済期間</th>
+                          <td class="input">
+                            <input
+                              type="number"
+                              onfocus="ga('send', 'event', 'form1', 'focus', '5hensaikikan', null, true);"
+                              name="esPeriod"
+                              class="esPeriod esNumArea"
+                            />　年
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+                <div class="sim-result lazyload">
+                  <div class="title lazyload">シミュレーション結果</div>
+                  <div class="result-box lazyload">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>毎月の返済額</th>
+                          <td class="input">
+                            <span class="esRepayment__month red-large"
+                              >20.9</span
+                            >
+                            万円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>ボーナス月の返済額</th>
+                          <td class="input">
+                            <span class="esRepayment__Bonus red-large">0</span>
+                            万円
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>支払い総額</th>
+                          <td class="input">
+                            <span class="esRepayment__total red-large"
+                              >8745</span
+                            >
+                            万円
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="note lazyload">
+                <p>〈提携ローンのご案内〉三菱UFJ銀行利用</p>
+                <ul class="annotation">
+                  <li>※融資限度額／売買価格の100％以内で最高10,000万円</li>
+                  <li>※融資事務手数料／借入額の2.2％</li>
+                  <li>
+                    ※「金利」については、ご利用を予定されている金融機関等にご確認の上、ご自身での入力をお願いいたします。
+                  </li>
+                  <li>
+                    ※初期設定で自動入力されている値は、実際の金融機関等における貸出金利とは何ら関係がなく、実際の金融機関等における貸出金利を何ら保証するものではありません。
+                  </li>
+                  <li>※返済方法「元利均等返済」にて算出しております。</li>
+                  <li>
+                    ※入力された金利を35年運用した場合の計算結果を表示しています。その他ローン諸経費がかかります。
+                  </li>
+                  <li>
+                    ※実際にお借り入れの際は金融機関等に、必ずご自身でご確認をお願いいたします。条件によってお借り入れができないことがあります。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="p-estate_contact l-contSection">
+          <div class="l-innerWrap lazyloaded">
+            <p class="c-contact_title">この物件についてのお問い合わせ</p>
+            <p class="c-contact_tenpoName">ロイヤルリゾート 軽井沢駅前店</p>
+            <p class="c-contact_address">
+              〒389-0104　長野県北佐久郡軽井沢町軽井沢東7-1　油屋ビル1F
+            </p>
+            <div class="l-flex lazyloaded">
+              <div class="l-flex_item c-tel lazyloaded">
+                <p>
+                  <a href="tel:0120-98-2311" class="">
+                    <span class="icon-phone01"></span>0120-98-2311</a
+                  >
+                </p>
+                <p class="c-text">受付／9:00～20:00 年中無休（年末年始除く）</p>
+              </div>
+              <div class="l-flex_item c-mail lazyloaded">
+                <p>
+                  <a
+                    href="https://www.royal-resort.co.jp/inquiry/karuizawa/sell/inspect/input/2105565966390000017552"
+                    class="icon-mail01 c-linkBtn_emp"
+                    target="_blank"
+                    >メールでお問い合わせ</a
+                  >
+                </p>
+              </div>
+              <div class="l-flex_item c-favorite lazyloaded">
+                <p>
+                  <a
+                    href="javascript:void(0)"
+                    onclick="add_favorite('sell','2105565966390000017552');"
+                    class="icon-fav01 c-linkBtn_empOL"
+                  >
+                    お気に入りに追加
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <Pickup :sourceData="sourceData1" SectionClassName="c-lag" />
+        <Pickup :sourceData="sourceData2" SectionClassName="c-lag" />
       </main>
+      <!-- -->
+      <ImageModal :detail_list="detail_list" />
     </div>
   </div>
 </template>
 
 <script>
 import iconFloorPlan from "../../assets/img/icon_floor-plan.svg";
+import ImageModal from "./ImageModal.vue";
+import iconScalingPlus from "../../assets/img/icon_scaling-plus.svg";
+import Pickup from "../homeView/pickup.vue";
 export default {
   name: "",
-  components: {},
+  components: {
+    ImageModal,
+    Pickup,
+  },
   mixins: [],
   props: {},
   data() {
     return {
       iconFloorPlan,
+      detail_list: [
+        "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_13.jpg?iid=37754731",
+        "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707",
+        "https://royal-h.es-img.jp/sale/img/2105565966390000015869/0000000002105565966390000015869_26.jpg?iid=94967674",
+      ],
+      showPlay: true,
+      showModal: false,
+      iconScalingPlus,
+      sourceData1: {
+        ary: [
+          {
+            id: 1,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+          {
+            id: 2,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+          {
+            id: 3,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+        ],
+        showAll: false,
+        detailTitle: "最近見た物件",
+        isdetail: true,
+      },
+      sourceData2: {
+        ary: [
+          {
+            id: 1,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+          {
+            id: 2,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+          {
+            id: 3,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+          {
+            id: 4,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+          {
+            id: 5,
+            src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
+          },
+        ],
+        showAll: false,
+        detailTitle: "こちらの物件もおすすめです",
+        isdetail: true,
+      },
     };
   },
-  computed: {},
+  computed: {
+    transFormDetailList() {
+      return this.detail_list.slice(1);
+    },
+  },
   watch: {},
   mounted() {},
-  methods: {},
+  methods: {
+    showPlayHandler() {
+      this.showPlay = true;
+      this.$refs.playRef.play();
+    },
+  },
 };
 </script>
 
@@ -585,9 +1087,6 @@ export default {
 }
 
 .estateDetail .c-resultDetail_point .c-resultDetail_pointItem.price {
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
   width: 30%;
 }
 
@@ -699,20 +1198,6 @@ export default {
     font-size: 1.2rem;
   }
 }
-
-/*@media screen and (max-width: 768px) {
-  .estateDetail .c-resultDetail_point .c-resultDetail_pointItem {
-    width: 50%;
-    padding: 10px;
-    font-size: 1.2rem;
-  }
-  .estateDetail .c-resultDetail_point .c-resultDetail_pointItem:nth-of-type(2n)::after {
-    display: none;
-  }
-  .estateDetail .c-resultDetail_point .c-resultDetail_pointItem:nth-of-type(n + 3) {
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-  }
-}*/
 .estateDetail .c-resultDetail_point .c-resultDetail_pointItem::after {
   content: "";
   display: inline-block;
@@ -738,10 +1223,6 @@ export default {
 
 .estateDetail .c-resultDetail_point .c-resultDetail_pointItem .c-icon {
   display: block;
-  /* height: 22px; */
-  /*margin-bottom: 5px;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed #e6e6e6;*/
 }
 
 .estateDetail .c-resultDetail_point .c-resultDetail_pointItem .c-icon::before {
@@ -914,23 +1395,6 @@ export default {
   }
 }
 
-/*
-.estateDetail .c-youtbe-time {
-  position: absolute;
-  right: 7%;
-  bottom: 0;
-  margin: 0 !important;
-  padding: 4px 16px;
-  background: rgba(0, 0, 0, 0.9);
-  color: #fff;
-  font-size: 1.4rem;
-}
-@media screen and (max-width: 768px) {
-  .estateDetail .c-youtbe-time {
-    right: 0%;
-  }
-}
-*/
 .estateDetail .files {
   justify-content: space-between;
   flex-wrap: wrap;
@@ -2177,5 +2641,19 @@ export default {
   font-size: 10px;
   font-weight: bold;
   text-align: center;
+}
+.c-lag {
+  background: #fff5e0;
+  /*background: #fff5e0 url(/src/img/common/bg_foot_pic01.png.webp) no-repeat center bottom;*/
+  padding: 60px 0 100px;
+  margin-bottom: -70px;
+}
+
+.shop_karuizawa .c-lag {
+  background: #fff5e0;
+}
+
+.m-top {
+  margin-top: 40px;
 }
 </style>
