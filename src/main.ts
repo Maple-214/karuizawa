@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import './assets/main.css'
+import '@/assets/css/main.css'
 import * as MicroModal from 'micromodal'
 
 Vue.use(MicroModal)

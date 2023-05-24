@@ -17,6 +17,7 @@
     "element-ui": "^2.15.13",
     "jquery": "^3.6.4",
     "jquery-match-height": "^0.7.2",
+    "luminous-lightbox": "^2.4.0",
     "micromodal": "^0.4.10",
     "pinia": "^2.0.16",
     "slick-carousel": "^1.8.1",

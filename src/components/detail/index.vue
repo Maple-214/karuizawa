@@ -65,7 +65,7 @@
             <div class="c-btn_printing lazyloaded">
               <a
                 href="javascript:void(0)"
-                onclick="print_window();return false;"
+                @click.prevent="print_window"
               >
                 <p class="icon-print01"></p>
                 <p class="c-text">印刷する</p>
@@ -159,7 +159,7 @@
           </div>
         </section>
         <section class="l-innerWrap m-top l-contSection">
-          <div class="c-youtube c-infoBox disp_youtube lazyloaded">
+          <div id="movie" class="c-youtube c-infoBox disp_youtube lazyloaded">
             <iframe
               ref="playRef"
               id="disp_youtube"
@@ -354,13 +354,14 @@
           <div id="" class="l-flex l-flex_spBlock c-infoBox files lazyloaded">
             <div class="l-flex_item c-pic_scaling lazyloaded">
               <a
-                href="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_1.jpg?iid=101390208"
+                href="https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169"
                 class="jc-luminous"
-                ><img
-                  src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_1.jpg?iid=101390208"
+              >
+                <img
+                  src="https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169"
                   alt=""
-                  data-src="https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_1.jpg?iid=101390208"
-                  class="lazyload"
+                  data-src="https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169"
+                  class="lazyloaded"
                 />
                 <p class="c-icon">
                   <img :src="iconScalingPlus" class="js-js-deSvg lazyload" />
@@ -573,6 +574,41 @@
       </main>
       <!-- -->
       <ImageModal :detail_list="detail_list" />
+      <OneImageModal :sourceImg="sourceImg" />
+      <div class="float-contact pcNon lazyloaded">
+        <div class="l-flex lazyloaded">
+          <div class="l-flex_item c-tel lazyloaded">
+            <p>
+              <a href="tel:0120-98-2311" class="">
+                <span class="icon-phone01"></span>0120-98-2311</a
+              >
+            </p>
+            <p class="c-text spNon">
+              受付／9:00～20:00年中無休（年末年始除く）
+            </p>
+          </div>
+          <div class="l-flex_item c-mail lazyloaded">
+            <p>
+              <a
+                href="https://www.royal-resort.co.jp/inquiry/karuizawa/sell/inspect/input/2105565966390000016653"
+                target="_blank"
+                class="icon-mail01 c-linkBtn_emp"
+                >メールでお問い合わせ</a
+              >
+            </p>
+          </div>
+          <div class="l-flex_item c-favorite spNon lazyloaded">
+            <p>
+              <a
+                href="javascript:void(0)"
+                onclick="add_favorite('sell','2105565966390000016653');"
+                class="icon-fav01 c-linkBtn_empOL"
+                >お気に入りに追加</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -580,13 +616,19 @@
 <script>
 import iconFloorPlan from "../../assets/img/icon_floor-plan.svg";
 import ImageModal from "./ImageModal.vue";
+import OneImageModal from "./OneImageModal.vue";
 import iconScalingPlus from "../../assets/img/icon_scaling-plus.svg";
 import Pickup from "../homeView/pickup.vue";
+import { Luminous } from "luminous-lightbox";
+
+import "/src/assets/pluginCss/luminous-basic.min.css";
+
 export default {
   name: "",
   components: {
     ImageModal,
     Pickup,
+    OneImageModal,
   },
   mixins: [],
   props: {},
@@ -598,9 +640,13 @@ export default {
         "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707",
         "https://royal-h.es-img.jp/sale/img/2105565966390000015869/0000000002105565966390000015869_26.jpg?iid=94967674",
       ],
+      sourceImg:
+        "https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169",
       showPlay: true,
       showModal: false,
       iconScalingPlus,
+      showPic: false,
+      fav: 0,
       sourceData1: {
         ary: [
           {
@@ -655,11 +701,46 @@ export default {
     },
   },
   watch: {},
-  mounted() {},
+  mounted() {
+    var luminousTrigger = document.querySelector(".jc-luminous");
+    if (luminousTrigger !== null) {
+      new Luminous(luminousTrigger);
+    }
+
+    // 创建一个新的style标签
+    let style = document.createElement("style");
+    // 添加CSS规则到style标签中
+    style.innerHTML = `
+    .p-modal-slider__main .slick-arrow::before {
+    border-left: solid 3px #fff;
+    border-bottom: solid 3px #fff;
+    opacity: 1 !important;
+    transition: opacity .2s;
+    }
+`;
+
+    // 将style标签插入到head元素中
+    document.head.appendChild(style);
+  },
+
   methods: {
     showPlayHandler() {
       this.showPlay = true;
       this.$refs.playRef.play();
+    },
+
+    print_window() {
+      $("img, .lazyload").each(function (key, value) {
+        try {
+          console.log($(value).attr("src"));
+          $(value).attr("src", $(value).attr("data-src"));
+          $(value).removeClass("lazyload");
+          $(value).addClass("lazyloaded");
+        } catch (e) {}
+      });
+
+      window.print();
+      return false
     },
   },
 };
@@ -758,20 +839,6 @@ export default {
   right: 15px;
 }
 
-/*@media screen and (max-width: 768px) {
-  .estateDetail .c-resultDetail_head .c-btnBox {
-    position: fixed;
-    z-index: 999;
-    right: 15px;
-  }
-}*/
-/*@media screen and (max-width: 768px) {
-  .estateDetail .c-resultDetail_head .c-btnBox {
-    position: absolute;
-    right: 20px;
-    margin-top: 0;
-  }
-}*/
 .c-titleBox + .c-btnBox {
   margin-top: 0;
 }
