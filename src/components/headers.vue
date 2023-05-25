@@ -320,7 +320,7 @@
             </nav>
           </div>
         </nav>
-        <div v-if="path === 'detail'" class="c-fixBtn lazyloaded">
+        <div v-if="renderFavHeader.includes(path)" class="c-fixBtn lazyloaded">
           <a
             class="c-fixBtn_item item-mail"
             href="https://www.royal-resort.co.jp/inquiry/karuizawa/sell/inspect/input/2105565966390000016653"
@@ -391,6 +391,7 @@ export default {
     return {
       icon1,
       icon2,
+      renderFavHeader:['detail','favlist']
     };
   },
   computed: {},

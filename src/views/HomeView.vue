@@ -1,6 +1,5 @@
 <script>
 import Headers from "@/components/headers.vue";
-// import Bodys from '@/components/homeView/body.vue'
 import Breadcrumb from "@/components/breadcrumb.vue";
 import Footers from "@/components/footers.vue";
 

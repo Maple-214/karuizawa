@@ -13553,9 +13553,9 @@ tooltip
   font-size: 1.4rem;
 }
 
-.shop_karuizawa .p-card_resultBox .c-card_resultBox-head .c-form_checkBox label {
+/* .shop_karuizawa .p-card_resultBox .c-card_resultBox-head .c-form_checkBox label {
   background: #d6d6d6;
-}
+} */
 
 .shop_karuizawa .p-card_resultBox .c-btn_favorite .c-text {
   margin-top: 5px;

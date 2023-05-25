@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -10,7 +8,6 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
       redirect: '/karuizawa',
       component: () => import(/* webpackChunkName: "HomeView" */ '@/views/HomeView.vue'),
       children: [
@@ -23,6 +20,37 @@ const router = new VueRouter({
           path: '/karuizawa/detail/:id',
           name: 'detail',
           component: () => import(/* webpackChunkName: "HomeView" */ '@/components/detail/index.vue'),
+        },
+        {
+          path: '/karuizawa/favlist',
+          name: 'favlist',
+          component: () => import(/* webpackChunkName: "HomeView" */ '@/components/favlist/Index.vue'),
+        },
+        {
+          path: '/karuizawa/submitform',
+          redirect: '/karuizawa/submitform/input',
+          name: 'submitform',
+          component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Index.vue'),
+          children: [
+            {
+              path: '/karuizawa/submitform/input',
+              name: 'submitforminput',
+              meta: {
+                keepAlive: true // 需要缓存
+              },
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Input.vue'),
+            },
+            {
+              path: '/karuizawa/submitform/confirm',
+              name: 'submitformconfirm',
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Confirm.vue'),
+            },
+            {
+              path: '/karuizawa/submitform/finish',
+              name: 'submitformconfirm',
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Finish.vue'),
+            },
+          ]
         }
       ]
     },

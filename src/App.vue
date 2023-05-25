@@ -1,12 +1,12 @@
-<script setup lang="ts">
-</script>
+<script></script>
 
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive" />
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
