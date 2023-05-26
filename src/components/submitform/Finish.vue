@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="l-contents">
     <section class="c-title_page">
       <h1 class="c-titleText">お問い合わせ 完了</h1>
       <div class="c-form-step">
@@ -51,14 +51,21 @@
       </div>
     </section>
   </div>
+  <!-- <PageType4/> -->
+
 </template>
 
 <script>
+import PageType4 from '../errorpage/PageType404.vue'
+
 export default {
   name: "KaruizawaFinish",
 
   data() {
     return {};
+  },
+  components: {
+    PageType4,
   },
 
   mounted() {},

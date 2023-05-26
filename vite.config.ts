@@ -21,6 +21,15 @@ export default defineConfig({
       "windows.jQuery": "jquery"
     }),
   ],
+  //全局引入
+  css: {
+    preprocessorOptions: {
+      scss: {
+        
+      
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

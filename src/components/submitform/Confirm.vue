@@ -1,11 +1,5 @@
 <template>
-  <form
-    method="POST"
-    action="https://www.royal-resort.co.jp/inquiry/karuizawa/multi/finish"
-    accept-charset="UTF-8"
-    id="form1"
-    class="inputForm form"
-  >
+  <form accept-charset="UTF-8" id="form1" class="inputForm form">
     <input
       name="_token"
       type="hidden"
@@ -126,6 +120,28 @@
     <section class="l-innerWrap l-contSection">
       <div class="p-form_rowWrap">
         <div class="c-title_sub">
+          <h2 class="c-titleText">
+            ご質問、ご要望などがございましたら、ご記入ください
+          </h2>
+        </div>
+
+        <dl class="p-form_row">
+          <dt class="p-form_rowTitle">ご質問・ご要望等</dt>
+          <dd class="p-form_rowBox">
+            <textarea
+              class="input400"
+              name="demand"
+              cols="50"
+              rows="10"
+            ></textarea>
+          </dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="l-innerWrap l-contSection">
+      <div class="p-form_rowWrap">
+        <div class="c-title_sub">
           <h2 class="c-titleText">お客様の情報をご入力ください。</h2>
         </div>
 
@@ -206,9 +222,6 @@
               2023年05月25日 10:00
               <p class="p-form_separateText">時頃希望</p>
             </div>
-
-            <!-- <p class="c-dataErrorText">エラーテキスト
-    </p> -->
           </dd>
         </dl>
       </div>
@@ -254,7 +267,8 @@
         <p class="c-btn">
           <input
             class="c-btn_prev fm-submit"
-            type="submit"
+            @click="submitHandler"
+            type="button"
             value="この内容で送信"
           />
         </p>
@@ -272,11 +286,16 @@
       </div>
     </section>
   </form>
+  <!-- <PageType4/> -->
 </template>
 
 <script>
+import PageType4 from "../errorpage/PageType404.vue";
 export default {
   name: "KaruizawaConfirm",
+  components: {
+    PageType4,
+  },
 
   data() {
     return {};
@@ -287,8 +306,16 @@ export default {
   methods: {
     goBackHandler() {
       this.$router.back();
-    //   document.documentElement.scrollTop = 0;
-    //   document.body.scrollTop = 0;
+      //   document.documentElement.scrollTop = 0;
+      //   document.body.scrollTop = 0;
+    },
+    submitHandler() {
+      this.$router.push({
+        path: "/karuizawa/submitform/finish",
+        query: { id: 1 },
+      });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
     },
   },
 };
