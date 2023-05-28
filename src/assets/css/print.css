@@ -1,0 +1,53 @@
+@media print{
+    body {
+    min-width: 1050px;
+    }
+    .l-nav,
+    .l-nav_tenpo,
+    .float-contact,
+    .c-btnBox,
+    .c-fixBtn,
+    .estateDetail .c-video,
+    .u-onlyMobile,
+    footer {
+      display: none !important;
+    }
+    .l-header {
+      border-bottom: 1px solid #ccc;
+    }
+    .is-fixed {
+      position: relative !important;
+    }
+    .l-header_nav-tempo {
+      background: #fff !important;
+      color: #273d7a !important;
+    }
+    .l-header_tenpoName {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .l-header_tenpoName p {
+      margin-right: 1em;
+      color: #273d7a !important;
+    }
+    
+    .estateDetail .c-resultDetail_outline_img {
+      width: 50%;
+    }
+    .estateDetail .c-resultDetail_outline_img .cboxElement {
+      width: 100%;
+      height: 320px;
+    }
+    .estateDetail .c-resultDetail_outline_text {
+      width: 50%;
+    }
+    .js-modalWrap_estateDetail .js-modalWrap_estateDetail_item,
+    .js-modalWrap_estateDetail .js-modalWrap_estateDetail_item .c-pic,
+    .js-modalWrap_estateDetail .js-modalWrap_estateDetail_item .c-caption {
+      width: 240px;
+    }
+    .js-modalWrap_estateDetail .js-modalWrap_estateDetail_item {
+      margin-right: 12px;
+    }
+    }

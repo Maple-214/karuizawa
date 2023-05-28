@@ -1,7 +1,10 @@
-@import "./reset.css";
+@import "./colorBox.css";
 @import "./common.css";
+/* @import "./pickdate.css"; */
+@import "./print.css";
+@import "./reset.css";
 body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /* overflow: visible; */
 }
 html,

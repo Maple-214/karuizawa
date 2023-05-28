@@ -1,14 +1,12 @@
-<script setup lang="ts">
-import HomeView from './views/homeView.vue'
-</script>
+<script></script>
 
 <template>
   <div id="app">
-    <HomeView />
-    1
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive" />
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

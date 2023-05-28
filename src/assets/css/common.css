@@ -2064,15 +2064,15 @@ container
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv dt {
   color: #e9546b;
   background-color: #fdf2f4;
-  background-image: url(../assets/img/img-menu-satei.jpeg);
+  background-image: url(@/assets/img/img-menu-satei.jpeg);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-main dt {
-  background-image: url(../assets/img/img-menu-sell.jpeg);
+  background-image: url(@/assets/img/img-menu-sell.jpeg);
 }
 
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-main dt {
-  background-image: url(../assets/img/img-menu-lend.jpeg);
+  background-image: url(@/assets/img/img-menu-lend.jpeg);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list dt,
@@ -2085,19 +2085,19 @@ container
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type dt,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type dt,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type dt {
-  background-image: url(../assets/img/img-menu-search-type.jpeg);
+  background-image: url(@/assets/img/img-menu-search-type.jpeg);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-map dt,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-map dt,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-map dt {
-  background-image: url(../assets/img/img-menu-search-map.jpeg);
+  background-image: url(@/assets/img/img-menu-search-map.jpeg);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-other dt,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-other dt,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-other dt {
-  background-image: url(../assets//img/img-menu-search-other.jpeg);
+  background-image: url(@/assets//img/img-menu-search-other.jpeg);
 }
 
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type dt span {
@@ -2265,17 +2265,17 @@ container
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-default,
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-default {
-  background-image: url(../assets/img/icon-satei01.png);
+  background-image: url(@/assets/img/icon-satei01.png);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-both,
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-both {
-  background-image: url(../assets/img/icon-satei02.png);
+  background-image: url(@/assets/img/icon-satei02.png);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-instantly,
 .l-header .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-instantly {
-  background-image: url(../assets/img/icon-satei03.png);
+  background-image: url(@/assets/img/icon-satei03.png);
 }
 
 .l-header .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a::after,
@@ -2318,35 +2318,35 @@ container
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-mansion,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-mansion,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-mansion {
-  background-image: url(../img/karuizawa/common/ico-mansion.png);
+  background-image: url(@/assets/img/ico-mansion.png);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-house,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-house,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-house {
-  background-image: url(../img/karuizawa/common/ico-house.png);
+  background-image: url(@/assets/img/ico-house.png);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-land,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-land,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-land {
-  background-image: url(../img/karuizawa/common/ico-land.png);
+  background-image: url(@/assets/img/ico-land.png);
 }
 
 .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-investment,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-investment,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-investment {
-  background-image: url(../img/karuizawa/common/ico-investment.png);
+  background-image: url(@/assets/img/ico-investment.png);
 }
 
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-parking,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-parking {
-  background-image: url(../img/karuizawa/common/ico-parking.png);
+  background-image: url(@/assets/img/ico-parking.png);
 }
 
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-season,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-season {
-  background-image: url(../img/karuizawa/common/ico-season.png);
+  background-image: url(@/assets/img/ico-season.png);
 }
 
 .l-header_nav-tempo .c-btn.c-linkBtn_prev {
@@ -4586,7 +4586,7 @@ a[class*="c-link"]:hover {
 }
 
 *+.c-btnBox {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .c-btn {
@@ -4883,7 +4883,7 @@ a.c-linkBtn_empOL.c-linkBtn_active::before {
   content: "";
   width: 30px;
   height: 30px;
-  background: url(/src/img/common/icon_fav03.svg);
+  background: url(@/assets/img/icon_fav03.svg);
   background-size: 30px 30px;
 }
 
@@ -5923,6 +5923,10 @@ a.c-linkBtn_off,
   margin: 0 -10px 0;
   padding: 15px 0;
 }
+.js-slider_carousel_pickup .slick-list {
+  margin: 0 -10px 0;
+  padding: 15px 0;
+}
 
 @media screen and (max-width: 1040px) {
   .js-slider_carousel .slick-list {
@@ -5932,8 +5936,20 @@ a.c-linkBtn_off,
     height: auto !important;
   }
 }
+@media screen and (max-width: 1040px) {
+  .js-slider_carousel_pickup .slick-list {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    overflow: visible;
+    height: auto !important;
+  }
+}
 
 .js-slider_carousel .p-card {
+  margin: 0 10px 0;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+}
+.js-slider_carousel_pickup .p-card {
   margin: 0 10px 0;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
@@ -6974,16 +6990,7 @@ a.c-linkBtn_off,
   }
 }
 
-.c-lag {
-  background: #fff5e0;
-  /*background: #fff5e0 url(/src/img/common/bg_foot_pic01.png.webp) no-repeat center bottom;*/
-  padding: 60px 0 100px;
-  margin-bottom: -70px;
-}
 
-.shop_karuizawa .c-lag {
-  background: #fff5e0;
-}
 
 @media screen and (max-width: 768px) {
   .c-lag {
@@ -7216,13 +7223,13 @@ a.c-linkBtn_off,
 
 .tenpoTop .tab_content .l-sell .l-sell_2nd {
   width: 100%;
-  background: #F2F9EC url(../assets/img/bg-tab-sell.png) no-repeat right center;
+  background: #F2F9EC url(@/assets/img/bg-tab-sell.png) no-repeat right center;
   background-size: contain;
 }
 
 .tenpoTop .tab_content .l-lend .l-lend_2nd {
   width: 100%;
-  background: #F2F9EC url(../assets/img/bg-tab-lend.png) no-repeat right center;
+  background: #F2F9EC url(@/assets/img/bg-tab-lend.png) no-repeat right center;
   background-size: contain;
 }
 
@@ -7411,15 +7418,15 @@ a.c-linkBtn_off,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv dt {
   color: #e9546b;
   background-color: #fdf2f4;
-  background-image: url(../assets/img/img-menu-satei.jpeg);
+  background-image: url(@/assets/img/img-menu-satei.jpeg);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-main dt {
-  background-image: url(../assets/img/img-menu-sell.jpeg);
+  background-image: url(@/assets/img/img-menu-sell.jpeg);
 }
 
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-main dt {
-  background-image: url(../assets/img/img-menu-lend.jpeg);
+  background-image: url(@/assets/img/img-menu-lend.jpeg);
 }
 
 .tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list dt,
@@ -7613,17 +7620,17 @@ a.c-linkBtn_off,
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-default,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-default {
-  background-image: url(./img/icon-satei01.png);
+  background-image: url(@/assets/img/icon-satei01.png);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-both,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-both {
-  background-image: url(./img/icon-satei02.png);
+  background-image: url(@/assets/img/icon-satei02.png);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a.cv-instantly,
 .tenpoTop .l-lend .l-lend_3rd .l-lend_3rd_list.list-cv a.cv-instantly {
-  background-image: url(./img/icon-satei03.png);
+  background-image: url(@/assets/img/icon-satei03.png);
 }
 
 .tenpoTop .l-sell .l-sell_3rd .l-sell_3rd_list.list-cv a::after,
@@ -8672,7 +8679,7 @@ a.c-linkBtn_off,
 }
 
 .shop_karuizawa .p-estate_contact {
-  background: #fff url(/src/img/karuizawa/common/bg_contact.jpg.webp) no-repeat center bottom;
+  background: #fff url('https://www.royal-resort.co.jp/src/img/karuizawa/common/bg_contact.jpg.webp') no-repeat center bottom;
   background-size: cover;
 }
 
@@ -9817,7 +9824,7 @@ a.c-linkBtn_off,
   }
 }
 
-.estateDetail .c-resultDetail_head .c-titleLead {
+/* .estateDetail .c-resultDetail_head .c-titleLead {
   font-size: 18px;
   font-size: 1.8rem;
   color: #7c6400;
@@ -9829,7 +9836,7 @@ a.c-linkBtn_off,
     font-size: 16px;
     font-size: 1.6rem;
   }
-}
+} */
 
 
 .estateDetail .c-resultDetail_head .l-flex_picup {
@@ -10532,29 +10539,7 @@ a.c-linkBtn_off,
   flex-wrap: wrap;
 }
 
-.estateDetail .files .c-pic_scaling {
-  width: 480px;
-  height: 550px;
-}
 
-@media screen and (max-width: 1040px) {
-  .estateDetail .files .c-pic_scaling {
-    margin: auto auto 30px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .estateDetail .files .c-pic_scaling {
-    margin: auto auto;
-    height: auto;
-    max-height: 300px;
-  }
-}
-
-.estateDetail .files .c-pic_scaling img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
 .estateDetail .files .l-flex_item.comment {
   width: 470px;
@@ -12803,7 +12788,7 @@ tooltip
 .l-etc .p-tenpoNum {
   width: 120px;
   height: 120px;
-  background: url(../assets/img/bg_badge_g.png) no-repeat center center;
+  background: url(@/assets/img/bg_badge_g.png) no-repeat center center;
   background-size: 120px;
   font-family: 'Noto Serif JP', serif;
   font-weight: 600;
@@ -12811,6 +12796,14 @@ tooltip
   line-height: 1.1;
   display: table;
   flex-shrink: 0;
+}
+.c-lag {
+  background: #fff5e0;
+  /*background: #fff5e0 url(/src/img/common/bg_foot_pic01.png.webp) no-repeat center bottom;*/
+  padding: 60px 0 100px;
+}
+.shop_karuizawa .c-lag {
+  background: #fff5e0;
 }
 
 .l-etc .p-tenpoNum .p-tenpoNum_inner {
@@ -13584,9 +13577,9 @@ tooltip
   font-size: 1.4rem;
 }
 
-.shop_karuizawa .p-card_resultBox .c-card_resultBox-head .c-form_checkBox label {
+/* .shop_karuizawa .p-card_resultBox .c-card_resultBox-head .c-form_checkBox label {
   background: #d6d6d6;
-}
+} */
 
 .shop_karuizawa .p-card_resultBox .c-btn_favorite .c-text {
   margin-top: 5px;
@@ -13595,47 +13588,6 @@ tooltip
 .shop_karuizawa .p-card_resultBox .l-table .c-dataTable {
   margin-top: 0;
 }
-
-/* 物件詳細 */
-/* .shop_karuizawa .estateDetail .files .c-pic_scaling{
-  width: 100%;
-  height: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-.shop_karuizawa .estateDetail .files .c-pic_scaling a{
-  height: 100%;
-}
-.shop_karuizawa .estateDetail .files .c-pic_scaling img{
-  max-width: 450px;
-  max-height: 450px;
-} */
-/* .shop_karuizawa .estateDetail .files .comment{
-  margin-top: 40px;
-} */
-.shop_karuizawa .estateDetail .files .comment .c-boxBg_bluBri {
-  /* margin-top: 20px; */
-}
-
-/*@media screen and (min-width: 768px) {
-  .shop_karuizawa .estateDetail #info_detail .l-table .c-dataTable.c-dataTable_deco th {
-    width: 15%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .shop_karuizawa .estateDetail #info_detail .l-table .c-dataTable.c-dataTable_deco th ,
-  .shop_karuizawa .estateDetail #info_detail .l-table .c-dataTable.c-dataTable_deco td {
-    width: 100%;
-    display: block;
-  }
-}*/
-
-/*.shop_karuizawa .js-slider_carouselPicNav .js-slider_carouselPicNavItem a {
-    width: 800px;
-    width: 100%;
-    max-width: 800px;
-}*/
 
 .detail .slick-slider .slick-arrow {
   background: #555555;
