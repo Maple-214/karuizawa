@@ -1,40 +1,36 @@
 <template>
   <div class="l-detail">
     <div class="l-container estateDetail">
-      <main>
+      <main v-if="detailSource">
         <section class="c-resultDetail_head l-innerWrap">
-          <div class="c-titleBox lazyloaded">
-            <div class="l-flex_picup lazyloaded">
+          <div class="c-titleBox">
+            <div class="l-flex_picup">
               <ul class="p-pickupLabel">
-                <li class="c-pickupLabel_num">物件番号：A16-12</li>
+                <li class="c-pickupLabel_num">
+                  物件番号：{{ detailSource._id }}
+                </li>
               </ul>
             </div>
-            <h1 class="c-title">東雲交差点近隣　土地</h1>
+            <h1 class="c-title">{{ detailSource.name }}</h1>
             <p class="c-titleLead">
-              商売から住居まで様々な用途で利用可能なエリア！<br />
-              軽井沢駅から約650ｍ徒歩約9分の好立地！
+              {{ detailSource.desc }}
             </p>
             <ul class="p-categoryLabel-tag">
-              <li class="c-categoryLabel-tag_item">管理費無し</li>
-              <li class="c-categoryLabel-tag_item">おすすめ</li>
-              <li class="c-categoryLabel-tag_item">平坦地</li>
-              <li class="c-categoryLabel-tag_item">永住したい</li>
-              <li class="c-categoryLabel-tag_item">スーパーに近い</li>
-              <li class="c-categoryLabel-tag_item">駐車場有</li>
-              <li class="c-categoryLabel-tag_item">角地</li>
-              <li class="c-categoryLabel-tag_item">100坪以下</li>
-              <li class="c-categoryLabel-tag_item">日当たり良好</li>
-              <li class="c-categoryLabel-tag_item">
-                駅から歩ける（徒歩15分以内）
+              <li
+                v-for="item in detailSource.tag"
+                :key="item"
+                class="c-categoryLabel-tag_item"
+              >
+                {{ item }}
               </li>
             </ul>
           </div>
-          <div class="c-btnBox lazyloaded">
-            <div class="c-btn_favorite lazyloaded">
+          <div class="c-btnBox">
+            <div class="c-btn_favorite">
               <a
-                href="javascript:void(0)"
-                onclick="add_favorite('sell','2105565966390000017552');"
-                class="navi_favo"
+                href=""
+                @click.prevent="addFavoriteHandler"
+                :class="isFavactive ? 'navi_favo is-active' : 'navi_favo'"
               >
                 <p>
                   <svg
@@ -47,7 +43,7 @@
                     viewBox="0 0 80 80"
                     style="enable-background: new 0 0 80 80"
                     xml:space="preserve"
-                    class="js-deSvg icon_fav ls-is-cached lazyloaded replaced-svg"
+                    class="js-deSvg icon_fav ls-is-cached replaced-svg"
                   >
                     <path
                       class="st0"
@@ -62,11 +58,8 @@
                 <p class="c-text">お気に入り<br />追加</p>
               </a>
             </div>
-            <div class="c-btn_printing lazyloaded">
-              <a
-                href="javascript:void(0)"
-                @click.prevent="print_window"
-              >
+            <div class="c-btn_printing">
+              <a href="javascript:void(0)" @click.prevent="print_window">
                 <p class="icon-print01"></p>
                 <p class="c-text">印刷する</p>
               </a>
@@ -74,16 +67,15 @@
           </div>
         </section>
         <section class="c-resultDetail_outline l-innerWrap">
-          <div class="c-resultDetail_outline_img lazyloaded">
-            <div
-              class="js-modalWrap_estateDetail_head atami p-mv-photo lazyloaded"
-            >
+          <div class="c-resultDetail_outline_img">
+            <div class="js-modalWrap_estateDetail_head atami p-mv-photo">
               <button
                 class="js-modalWrap_estateDetail_item"
                 data-micromodal-trigger="js-swiper-modal"
                 data-index="0"
+                v-if="detail_list[0]"
               >
-                <img :src="detail_list[0]" alt="" class="lazyloaded" />
+                <img :src="detail_list[0].url" alt="" class="" />
               </button>
               <button
                 class="p-mv-photo__floor-plan-btn c-floor-plan-btn"
@@ -97,22 +89,23 @@
                   width="24"
                   height="24"
                   loading="lazy"
-                  class="ls-is-cached lazyloaded"
+                  class="ls-is-cached"
                 />
                 <span>間取り</span>
               </button>
             </div>
             <p class="c-caption estateDetail_mv-caption"></p>
             <p class="c-caption">
-              商売可能な近隣商業地域！町内では希少な物件です！
+              {{ detailSource.detail_desc }}
             </p>
             <p></p>
           </div>
-          <div class="c-resultDetail_outline_text lazyloaded">
+          <div class="c-resultDetail_outline_text">
             <dl class="outline_main">
               <dt class="c-price">価格</dt>
               <dd>
-                <span class="u-wf_num">8,250</span>万円
+                <span class="u-wf_num">{{ detailSource.price }}</span
+                >万円
 
                 <a href="#simulation" class="simulation-btn"
                   >￥ローンシミュレーション</a
@@ -120,46 +113,50 @@
               </dd>
 
               <dt>間取り</dt>
-              <dd>3LDK</dd>
+              <dd>{{ detailSource.floor_plan }}</dd>
 
               <dt>建物面積</dt>
-              <dd>196.52m²</dd>
+              <dd>{{ detailSource.construction_area }}m²</dd>
               <dt>土地面積</dt>
-              <dd>1013m²</dd>
+              <dd>{{ detailSource.Land_area }}m²</dd>
             </dl>
             <ul class="outline_sub">
-              <li class="c-location">中軽井沢（北部）</li>
+              <li class="c-location">{{ detailSource.station }}</li>
               <li class="c-traffic">
-                しなの鉄道線「中軽井沢」駅 車約9分（約4.4km）
+                {{ detailSource.transportation }}
               </li>
-              <li class="c-structure">木造 2階建</li>
+              <li class="c-structure">{{ detailSource.House_structure }}</li>
             </ul>
-            <ul class="outline_link-btn">
+            <ul v-if="detailSource.youtube_src" class="outline_link-btn">
               <li><a href="#movie" class="ico-movie">動画掲載物件</a></li>
             </ul>
           </div>
         </section>
         <section class="l-contSection">
-          <div class="l-innerWrap lazyloaded">
-            <div class="js-modalWrap_estateDetail atami lazyloaded">
+          <div class="l-innerWrap">
+            <div class="js-modalWrap_estateDetail atami">
               <a
                 v-for="(item, index) in transFormDetailList"
-                :key="item"
+                :key="item.url"
                 class="js-modalWrap_estateDetail_item"
                 href="javascript:void(0);"
                 :data-index="index + 1"
                 data-micromodal-trigger="js-swiper-modal"
               >
-                <div class="c-pic lazyloaded">
-                  <img :src="item" class="lazyloaded" />
+                <div class="c-pic">
+                  <img :src="item.url" class="" />
                 </div>
-                <p class="c-caption">スーパーデリシア軽井沢店まで約1.2ｋｍ</p>
+                <p class="c-caption">{{ item.desc }}</p>
               </a>
             </div>
           </div>
         </section>
         <section class="l-innerWrap m-top l-contSection">
-          <div id="movie" class="c-youtube c-infoBox disp_youtube lazyloaded">
+          <div
+            v-if="detailSource.youtube_src"
+            id="movie"
+            class="c-youtube c-infoBox disp_youtube"
+          >
             <iframe
               ref="playRef"
               id="disp_youtube"
@@ -168,110 +165,116 @@
               frameborder="0"
               allowfullscreen="1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              title="C1-424「中軽井沢　千ヶ滝西区からまつの森　アメリカンハウス」太陽光発電、全館集中冷暖房で一年中快適！ビルトインガレージ設備！ドッグランあり！しなの鉄道線「中軽井沢」駅 車約9分（約4.4km）"
+              :title="detailSource.name"
               width="100%"
               height="400"
-              src="https://www.youtube.com/embed/C_ezHVd1EwA?playsinline=1&amp;rel=0&amp;loop=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.royal-resort.co.jp&amp;widgetid=1"
+              :src="detailSource.youtube_src"
               data-gtm-yt-inspected-8="true"
             ></iframe>
           </div>
           <!-- <div
             v-show="!showPlay"
             @click="showPlayHandler"
-            class="c-youtube c-infoBox disp_youtube lazyloaded"
+            class="c-youtube c-infoBox disp_youtube "
             id="movie"
           >
             <img
-              class="c-youtube-thum lazyloaded"
+              class="c-youtube-thum "
               src="https://img.youtube.com/vi/C_ezHVd1EwA/hqdefault.jpg"
             />
             <p class="c-youtbe-ico">
               <img
                 src="https://www.royal-resort.co.jp/src/img/common/icon-video.png"
                 alt="You Tubeのアイコン"
-                class="lazyloaded"
+                class=""
               />
             </p>
           </div> -->
-          <div id="info_detail" class="c-infoBox lazyloaded">
-            <div class="c-title_sub lazyloaded">
+          <div id="info_detail" class="c-infoBox">
+            <div class="c-title_sub">
               <h3 class="c-titleText">物件詳細</h3>
             </div>
 
-            <div class="l-table lazyloaded">
+            <div class="l-table">
               <table class="c-dataTable c-dataTable_deco">
                 <tbody>
                   <tr>
                     <th colspan="1">所在地</th>
-                    <td colspan="3">長野県北佐久郡軽井沢町長倉</td>
+                    <td colspan="3">{{ detailSource.location }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">交通</th>
                     <td colspan="3">
-                      しなの鉄道線「中軽井沢」駅 車約9分（約4.4km）
+                      {{ detailSource.transportation }}
                     </td>
                   </tr>
                   <tr>
                     <th>建物面積</th>
-                    <td>196.52m² （59.44坪）</td>
+                    <td>
+                      {{ detailSource.construction_area }}m²
+                      {{ detailSource.construction_area | filterNumber }}
+                    </td>
                     <th>土地面積</th>
-                    <td>1013m² （306.43坪）</td>
+                    <td>
+                      {{ detailSource.Land_area }}m²
+                      {{ detailSource.Land_area | filterNumber }}
+                    </td>
                   </tr>
                   <tr>
                     <th colspan="1">構造・階数</th>
                     <td colspan="3">
-                      木造 2階建
+                      {{ detailSource.House_structure }}
 
                       <br />その他
                     </td>
                   </tr>
                   <tr>
                     <th colspan="1">私道負担面積</th>
-                    <td colspan="3">無</td>
+                    <td colspan="3">{{ detailSource.private_road }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">セットバック</th>
-                    <td colspan="3">不要</td>
+                    <td colspan="3">{{ detailSource.setback }}</td>
                   </tr>
 
                   <tr>
                     <th>建ぺい率</th>
-                    <td>20%</td>
+                    <td>{{ detailSource.building_coverage_ratio }}</td>
                     <th>容積率</th>
-                    <td>20%</td>
+                    <td>{{ detailSource.floor_area_ratio }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">設備</th>
-                    <td colspan="3">２階洗面台、浴室に窓</td>
+                    <td colspan="3">{{ detailSource.facility }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">その他設備</th>
                     <td colspan="3">
-                      電気：中部電力　ガス：無オール電化　給湯：オール電化　水道：私営水道　汚水・雑排水：浄化槽
+                      {{ detailSource.other_equipment }}
                     </td>
                   </tr>
                   <tr>
                     <th>現況</th>
-                    <td>利用中</td>
+                    <td>{{ detailSource.current_situation }}</td>
                     <th>取引態様</th>
-                    <td>媒介</td>
+                    <td>{{ detailSource.mode_of_transaction }}</td>
                   </tr>
                   <tr>
                     <th>引渡条件</th>
-                    <td>相談</td>
+                    <td>{{ detailSource.delivery_conditions }}</td>
                     <th>引渡時期</th>
-                    <td>相談</td>
+                    <td>{{ detailSource.delivery_time }}</td>
                   </tr>
                   <tr>
                     <th>築年月</th>
-                    <td>平成29年1月</td>
+                    <td>{{ detailSource.time }}</td>
                     <th>土地権利</th>
-                    <td>所有権</td>
+                    <td>{{ detailSource.land_rights }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">備考</th>
                     <td colspan="3">
-                      現況：居住中　■事前予約要　■任意管理　■引渡し時期：要相談　　C1-424
+                      {{ detailSource.remarks }}
                     </td>
                   </tr>
                 </tbody>
@@ -282,7 +285,7 @@
                   <tr>
                     <th colspan="1">その他費用</th>
                     <td colspan="3">
-                      参考固都税額（令和3年度） : 209,900円/年<br />
+                      {{ detailSource.other_expenses }}
                     </td>
                   </tr>
                 </tbody>
@@ -292,57 +295,61 @@
                 <tbody>
                   <tr>
                     <th>都市計画区域区分</th>
-                    <td>非線引き区域</td>
+                    <td>{{ detailSource.city_planning_area_division }}</td>
                     <th>地目</th>
-                    <td>山林</td>
+                    <td>{{ detailSource.landmark }}</td>
                   </tr>
                   <tr>
                     <th>区画整理</th>
-                    <td>無</td>
+                    <td>{{ detailSource.land_readjustment }}</td>
                     <th>都市計画道路</th>
-                    <td></td>
+                    <td>{{ detailSource.ticity_planning_roadme }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">地域地区街区</th>
-                    <td colspan="3"></td>
+                    <td colspan="3">
+                      {{ detailSource.regional_district_block }}
+                    </td>
                   </tr>
                   <tr>
                     <th colspan="1">用途地域</th>
-                    <td colspan="3">第一種低層住居専用地域</td>
+                    <td colspan="3">{{ detailSource.use_area }}</td>
                   </tr>
 
                   <tr>
                     <th colspan="1">地勢</th>
-                    <td colspan="3">傾斜地</td>
+                    <td colspan="3">{{ detailSource.terrain }}</td>
                   </tr>
 
                   <tr>
                     <th colspan="1">接道状況</th>
-                    <td colspan="3">一方</td>
+                    <td colspan="3">{{ detailSource.contact_situation }}</td>
                   </tr>
                   <tr>
                     <th colspan="1">主な接道</th>
                     <td colspan="3">
-                      私道、北、幅員：6m、接道長さ：22m、舗装あり
+                      {{ detailSource.main_approach }}
                     </td>
                   </tr>
 
                   <tr>
                     <th colspan="1">法令制限</th>
-                    <td colspan="3">景観法、自然公園法</td>
+                    <td colspan="3">{{ detailSource.legal_restrictions }}</td>
                   </tr>
 
                   <tr>
                     <th colspan="1">駐車場</th>
-                    <td colspan="3">有(敷地内)</td>
+                    <td colspan="3">{{ detailSource.parking }}</td>
                   </tr>
                 </tbody>
               </table>
 
-              <div class="note lazyloaded">
+              <div class="note">
                 <ul class="annotation">
                   <li>
-                    更新日：2023年05月22日　 次回更新予定日：2023年06月05日
+                    更新日：{{ detailSource.update }}　 次回更新予定日：{{
+                      detailSource.update
+                    }}
                   </li>
 
                   <li>※間取りの「S」はサービスルーム（納戸）です</li>
@@ -351,17 +358,17 @@
             </div>
           </div>
 
-          <div id="" class="l-flex l-flex_spBlock c-infoBox files lazyloaded">
-            <div class="l-flex_item c-pic_scaling lazyloaded">
+          <div id="" class="l-flex l-flex_spBlock c-infoBox files">
+            <div class="l-flex_item c-pic_scaling">
               <a
-                href="https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169"
+                :href="detailSource.house_structure_picture"
                 class="jc-luminous"
+                target="_blank"
               >
                 <img
-                  src="https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169"
+                  :src="detailSource.house_structure_picture"
                   alt=""
-                  data-src="https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169"
-                  class="lazyloaded"
+                  class=""
                 />
                 <p class="c-icon">
                   <img :src="iconScalingPlus" class="js-js-deSvg lazyload" />
@@ -369,17 +376,17 @@
               </a>
             </div>
 
-            <div class="l-flex_item comment lazyloaded">
-              <div class="c-boxBg_bluBri lazyloaded">
+            <div class="l-flex_item comment">
+              <div class="c-boxBg_bluBri">
                 <p class="c-tits">売主様より</p>
                 <p>
-                  長年家族で所有してきた土地ですが、管理も大変になってきたため売却することとなりました。駅や本通りへのアクセスが良く、ここ最近ではお店等も増えているようで賑やかになっていると聞いております。永住やご商売にもお使いいただけると存じます。お気に召していただける方との良いご縁をお待ちしております。何卒、宜しくお願いいたします。
+                  {{ detailSource.seller_talk }}
                 </p>
               </div>
               <div class="c-boxBg_bluBri lazyload">
                 <p class="c-tits">担当者より</p>
                 <p>
-                  北陸新幹線軽井沢駅から徒歩約9分の距離に日当たりの良い平坦地が出ました！定住用・別荘用・商売用、様々な用途でご計画いただける貴重なお土地です！また、現在は青空駐車場として利用しており、木々もほとんどなく造成費用も抑えることができるのも魅力の一つです！ご興味がございましたら、ぜひお早めにご見学にいらしてください！皆様のお問合せを心よりお待ちしております。
+                  {{ detailSource.charge_talk }}
                 </p>
               </div>
             </div>
@@ -398,13 +405,14 @@
                         <tr>
                           <th>購入価格</th>
                           <td class="input">
-                            6,800 万円
+                            {{ detailSource.price }} 万円
                             <input
+                              v-if="detailSource.price"
                               type="hidden"
                               id="hiddenPrice"
                               name="hiddenPrice"
                               class="hiddenPrice esNumArea"
-                              value="68000000"
+                              :value="detailSource.price + '0000'"
                             />
                           </td>
                         </tr>
@@ -412,10 +420,11 @@
                           <th>自己資金</th>
                           <td class="input">
                             <input
+                              @blur="esDownPaymentHandler"
                               type="number"
-                              onfocus="ga('send', 'event', 'form1', 'focus', '1jikosikin', null, true);"
                               name="esDownPayment"
                               class="esDownPayment esNumArea"
+                              v-model="esDownPayment"
                             />万円
                           </td>
                         </tr>
@@ -423,11 +432,11 @@
                           <th>借入金額</th>
                           <td class="input">
                             <input
+                              @blur="esLoanHandler"
                               type="number"
-                              onfocus="ga('send', 'event', 'form1', 'focus', '2kariire', null, true);"
                               name="esLoan"
                               class="esLoan esNumArea"
-                              value=""
+                              v-model="esLoan"
                             />万円
                           </td>
                         </tr>
@@ -438,10 +447,11 @@
                           </th>
                           <td class="input">
                             <input
+                              @blur="esBonusHandler"
                               type="number"
-                              onfocus="ga('send', 'event', 'form1', 'focus', '3bo-nasu', null, true);"
                               name="esBonus"
                               class="esBonus esNumArea"
+                              v-model="esBonus"
                             />万円
                           </td>
                         </tr>
@@ -449,10 +459,11 @@
                           <th>金利</th>
                           <td class="input">
                             <input
+                              @blur="esRateHandler"
                               type="number"
-                              onfocus="ga('send', 'event', 'form1', 'focus', '4kinri', null, true);"
                               name="esRate"
                               class="esRate esNumArea"
+                              v-model="esRate"
                             />　％
                           </td>
                         </tr>
@@ -460,9 +471,10 @@
                           <th>返済期間</th>
                           <td class="input">
                             <input
+                              @blur="esPeriodHandler"
                               type="number"
-                              onfocus="ga('send', 'event', 'form1', 'focus', '5hensaikikan', null, true);"
                               name="esPeriod"
+                              v-model="esPeriod"
                               class="esPeriod esNumArea"
                             />　年
                           </td>
@@ -479,25 +491,27 @@
                         <tr>
                           <th>毎月の返済額</th>
                           <td class="input">
-                            <span class="esRepayment__month red-large"
-                              >20.9</span
-                            >
+                            <span class="esRepayment__month red-large">{{
+                              monthlyPay
+                            }}</span>
                             万円
                           </td>
                         </tr>
                         <tr>
                           <th>ボーナス月の返済額</th>
                           <td class="input">
-                            <span class="esRepayment__Bonus red-large">0</span>
+                            <span class="esRepayment__Bonus red-large">{{
+                              bonusPay
+                            }}</span>
                             万円
                           </td>
                         </tr>
                         <tr>
                           <th>支払い総額</th>
                           <td class="input">
-                            <span class="esRepayment__total red-large"
-                              >8745</span
-                            >
+                            <span class="esRepayment__total red-large">{{
+                              fullPay
+                            }}</span>
                             万円
                           </td>
                         </tr>
@@ -530,14 +544,14 @@
           </div>
         </section>
         <section class="p-estate_contact l-contSection">
-          <div class="l-innerWrap lazyloaded">
+          <div class="l-innerWrap">
             <p class="c-contact_title">この物件についてのお問い合わせ</p>
             <p class="c-contact_tenpoName">ロイヤルリゾート 軽井沢駅前店</p>
             <p class="c-contact_address">
               〒389-0104　長野県北佐久郡軽井沢町軽井沢東7-1　油屋ビル1F
             </p>
-            <div class="l-flex lazyloaded">
-              <div class="l-flex_item c-tel lazyloaded">
+            <div class="l-flex">
+              <div class="l-flex_item c-tel">
                 <p>
                   <a href="tel:0120-98-2311" class="">
                     <span class="icon-phone01"></span>0120-98-2311</a
@@ -545,22 +559,26 @@
                 </p>
                 <p class="c-text">受付／9:00～20:00 年中無休（年末年始除く）</p>
               </div>
-              <div class="l-flex_item c-mail lazyloaded">
+              <div class="l-flex_item c-mail">
                 <p>
                   <a
-                    href="https://www.royal-resort.co.jp/inquiry/karuizawa/sell/inspect/input/2105565966390000017552"
+                    :href="`/karuizawa/submitform/input?_id=${detailSource._id}&form=detail`"
                     class="icon-mail01 c-linkBtn_emp"
                     target="_blank"
                     >メールでお問い合わせ</a
                   >
                 </p>
               </div>
-              <div class="l-flex_item c-favorite lazyloaded">
+              <div class="l-flex_item c-favorite">
                 <p>
                   <a
-                    href="javascript:void(0)"
-                    onclick="add_favorite('sell','2105565966390000017552');"
-                    class="icon-fav01 c-linkBtn_empOL"
+                    href=""
+                    @click.prevent="addFavoriteHandler"
+                    :class="
+                      isFavactive
+                        ? 'icon-fav01 c-linkBtn_empOL c-linkBtn_active'
+                        : 'icon-fav01 c-linkBtn_empOL'
+                    "
                   >
                     お気に入りに追加
                   </a>
@@ -569,15 +587,18 @@
             </div>
           </div>
         </section>
-        <Pickup :sourceData="sourceData1" SectionClassName="c-lag" />
-        <Pickup :sourceData="sourceData2" SectionClassName="c-lag" />
+        <!-- <Pickup :sourceData="sourceData1" SectionClassName="c-lag" /> -->
+        <!-- <Pickup :sourceData="sourceData2" SectionClassName="c-lag" /> -->
       </main>
       <!-- -->
-      <ImageModal :detail_list="detail_list" />
-      <OneImageModal :sourceImg="sourceImg" />
-      <div class="float-contact pcNon lazyloaded">
-        <div class="l-flex lazyloaded">
-          <div class="l-flex_item c-tel lazyloaded">
+      <ImageModal
+        :detail_list="detail_list"
+        :detail_desc="detailSource.detail_desc"
+      />
+      <OneImageModal :sourceImg="detailSource.house_structure_picture" />
+      <div class="float-contact pcNon">
+        <div class="l-flex">
+          <div class="l-flex_item c-tel">
             <p>
               <a href="tel:0120-98-2311" class="">
                 <span class="icon-phone01"></span>0120-98-2311</a
@@ -587,22 +608,26 @@
               受付／9:00～20:00年中無休（年末年始除く）
             </p>
           </div>
-          <div class="l-flex_item c-mail lazyloaded">
+          <div class="l-flex_item c-mail">
             <p>
               <a
-                href="https://www.royal-resort.co.jp/inquiry/karuizawa/sell/inspect/input/2105565966390000016653"
+                :href="`/karuizawa/submitform/input?_id=${detailSource._id}&form=detail`"
                 target="_blank"
                 class="icon-mail01 c-linkBtn_emp"
                 >メールでお問い合わせ</a
               >
             </p>
           </div>
-          <div class="l-flex_item c-favorite spNon lazyloaded">
+          <div class="l-flex_item c-favorite spNon">
             <p>
               <a
-                href="javascript:void(0)"
-                onclick="add_favorite('sell','2105565966390000016653');"
-                class="icon-fav01 c-linkBtn_empOL"
+                href=""
+                @click.prevent="addFavoriteHandler"
+                :class="
+                  isFavactive
+                    ? 'icon-fav01 c-linkBtn_empOL c-linkBtn_active'
+                    : 'icon-fav01 c-linkBtn_empOL'
+                "
                 >お気に入りに追加</a
               >
             </p>
@@ -614,14 +639,16 @@
 </template>
 
 <script>
+import "@/assets/pluginCss/luminous-basic.min.css";
 import iconFloorPlan from "../../assets/img/icon_floor-plan.svg";
 import ImageModal from "./ImageModal.vue";
 import OneImageModal from "./OneImageModal.vue";
 import iconScalingPlus from "../../assets/img/icon_scaling-plus.svg";
 import Pickup from "../homeView/pickup.vue";
 import { Luminous } from "luminous-lightbox";
-
-import "/src/assets/pluginCss/luminous-basic.min.css";
+import { getFavList, setFavList } from "@/utils/cookies.ts";
+import { getHoursesDetail } from "@/apis/index.ts";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "",
@@ -635,18 +662,23 @@ export default {
   data() {
     return {
       iconFloorPlan,
-      detail_list: [
-        "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_13.jpg?iid=37754731",
-        "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707",
-        "https://royal-h.es-img.jp/sale/img/2105565966390000015869/0000000002105565966390000015869_26.jpg?iid=94967674",
-      ],
-      sourceImg:
-        "https://royal-h.es-img.jp/sale/img/2105565966390000017514/0000000002105565966390000017514_1.jpg?iid=3940751169",
+      detailSource: {},
+      detail_list: [],
+      originPrice: 0,
+      esLoan: 0,
+      esBonus: 0,
+      esDownPayment: 0,
+      esRate: 1.5,
+      esPeriod: 35,
+      monthlyPay: 0,
+      bonusPay: 0,
+      fullPay: 0,
       showPlay: true,
       showModal: false,
       iconScalingPlus,
       showPic: false,
       fav: 0,
+      isFavactive: false,
       sourceData1: {
         ary: [
           {
@@ -696,21 +728,69 @@ export default {
     };
   },
   computed: {
+    ...mapState(["favTotal"]),
     transFormDetailList() {
       return this.detail_list.slice(1);
     },
   },
-  watch: {},
+  filters: {
+    filterNumber(params) {
+      if (!params) return "";
+      const _arr = ((params - 0) * 0.3025).toString().split(".");
+      const _Str = _arr[0] + "." + _arr[1].slice(0, 2);
+      return `(${_Str}坪)`;
+    },
+  },
+  watch: {
+    isFavactive(_old, _new) {},
+  },
   mounted() {
-    var luminousTrigger = document.querySelector(".jc-luminous");
-    if (luminousTrigger !== null) {
-      new Luminous(luminousTrigger);
-    }
+    this.init();
+  },
 
-    // 创建一个新的style标签
-    let style = document.createElement("style");
-    // 添加CSS规则到style标签中
-    style.innerHTML = `
+  methods: {
+    ...mapMutations(["updateFavTotal"]),
+    init() {
+      this.initLuminous();
+      this.addCss();
+      this.getDetailInfo();
+      this.isFavactiveHandler();
+    },
+    showPlayHandler() {
+      this.showPlay = true;
+      this.$refs.playRef.play();
+    },
+    async getDetailInfo() {
+      const { params } = this.$route;
+      const { id } = params;
+      if (id) {
+        const data = await getHoursesDetail({ _id: id });
+        this.detailSource = data.data;
+        this.detail_list = [
+          { desc: "", url: this.detailSource.preview_image.url },
+          ...this.detailSource.indoor_map_desc,
+        ];
+        this.esLoan = this.detailSource.price.replace(",", "") - 0;
+        this.originPrice = this.detailSource.price.replace(",", "") - 0;
+        this.numberResult(
+          this.esPeriod,
+          this.esRate,
+          this.esBonus,
+          this.esLoan
+        );
+      }
+    },
+    initLuminous() {
+      const luminousTrigger = document.querySelector(".jc-luminous");
+      if (luminousTrigger !== null) {
+        new Luminous(luminousTrigger);
+      }
+    },
+    addCss() {
+      // 创建一个新的style标签
+      let style = document.createElement("style");
+      // 添加CSS规则到style标签中
+      style.innerHTML = `
     .p-modal-slider__main .slick-arrow::before {
     border-left: solid 3px #fff;
     border-bottom: solid 3px #fff;
@@ -719,28 +799,122 @@ export default {
     }
 `;
 
-    // 将style标签插入到head元素中
-    document.head.appendChild(style);
-  },
-
-  methods: {
-    showPlayHandler() {
-      this.showPlay = true;
-      this.$refs.playRef.play();
+      // 将style标签插入到head元素中
+      document.head.appendChild(style);
     },
-
     print_window() {
       $("img, .lazyload").each(function (key, value) {
         try {
           console.log($(value).attr("src"));
           $(value).attr("src", $(value).attr("data-src"));
           $(value).removeClass("lazyload");
-          $(value).addClass("lazyloaded");
+          $(value).addClass("");
         } catch (e) {}
       });
 
       window.print();
-      return false
+      return false;
+    },
+    esLoanHandler(e) {
+      const value = e.target.value - 0;
+      if (value > this.originPrice) {
+        alert("借入金額は0円以上購入金額以下の値を入力してください。");
+        this.esLoan = this.originPrice;
+        return;
+      }
+      this.esDownPayment = this.originPrice - value;
+      this.numberResult(this.esPeriod, this.esRate, this.esBonus, this.esLoan);
+    },
+    esBonusHandler(e) {
+      const value = e.target.value - 0;
+      this.esBonus = value;
+      this.numberResult(this.esPeriod, this.esRate, this.esBonus, this.esLoan);
+    },
+    esDownPaymentHandler(e) {
+      const value = e.target.value - 0;
+      if (value < 0) {
+        alert("頭金は0円以上購入金額未満の値を入力してください。");
+        this.esDownPayment = 0;
+        return;
+      }
+      this.esDownPayment = value;
+      this.esLoan = this.originPrice - this.esDownPayment;
+      this.numberResult(this.esPeriod, this.esRate, this.esBonus, this.esLoan);
+    },
+    esRateHandler(e) {
+      const value = e.target.value - 0;
+      if (value < 0 || value > 5) {
+        alert("金利は0.001以上5.0以下を入力してください。");
+        this.esRate = 1.5;
+        return;
+      }
+      this.esRate = value;
+      this.numberResult(this.esPeriod, this.esRate, this.esBonus, this.esLoan);
+    },
+    esPeriodHandler(e) {
+      const value = e.target.value - 0;
+      if (value > 35) {
+        alert("返済期間は5年以上35年以下の値を入力してください。");
+        return;
+      }
+      if (value < 0) {
+        alert("返済期間は5年以上35年以下の値を入力してください。");
+        return;
+      }
+      this.esPeriod = value;
+      this.numberResult(this.esPeriod, this.esRate, this.esBonus, this.esLoan);
+    },
+    numberResult(esPeriod, esRate, esBonus, esLoan) {
+      const j = esPeriod;
+      const i = esRate;
+      const k = esBonus;
+      const e = esLoan;
+      const h = i / 100;
+      const m = h / 12;
+      const l = h / 2;
+      const a = j * 12;
+      const g = j * 2;
+      const b = parseFloat(e) - k;
+      const o = (b * Math.pow(1 + m, a) * m) / (Math.pow(1 + m, a) - 1);
+      const c = Math.ceil(o * 10) / 10;
+      const d = (k * Math.pow(1 + l, g) * l) / (Math.pow(1 + l, g) - 1);
+      const f = Math.ceil(d * 10) / 10;
+      const p = Math.ceil(((o * 6 + d) * 2 * j * 10) / 10);
+      this.monthlyPay = c;
+      this.bonusPay = f;
+      this.fullPay = p;
+    },
+    addFavoriteHandler() {
+      this.isFavactive = true;
+      const id = this.$route.params.id;
+      const oldArr = getFavList();
+      if (oldArr) {
+        let Arr = JSON.parse(oldArr);
+        const isInOldFavList = Arr.includes(id);
+        if (!isInOldFavList) {
+          Arr.push(id);
+          setFavList(Arr);
+          this.updateFavTotal(Arr.length);
+          this.isFavactiveHandler();
+        } else {
+          Arr = Arr.filter((item) => item !== id);
+          setFavList(Arr);
+          this.updateFavTotal(Arr.length);
+          this.isFavactiveHandler();
+        }
+      } else {
+        const Arr = [];
+        Arr.push(id);
+        setFavList(Arr);
+        this.updateFavTotal(Arr.length);
+        this.isFavactiveHandler();
+      }
+    },
+    isFavactiveHandler() {
+      const favlist = getFavList();
+      if (!favlist) return;
+      const newArr = JSON.parse(favlist);
+      this.isFavactive = newArr.includes(this.$route.params.id);
     },
   },
 };
@@ -789,6 +963,7 @@ export default {
   font-size: 1.8rem;
   color: #7c6400;
   margin: 1em 0;
+  width: 340px;
 }
 
 @media screen and (max-width: 768px) {

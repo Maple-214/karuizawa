@@ -6,7 +6,7 @@
     </div>
 
     <!-- 详情页标题 -->
-    <div v-if="sourceData.isdetail" class="l-innerWrap">
+    <div v-if="sourceData.isdetail && sourceData.ary" class="l-innerWrap">
       <div class="c-title_sub">
         <h4 class="c-titleText">{{ sourceData.detailTitle }}</h4>
       </div>
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <div v-if="!sourceData.isdetail" class="js-slider_carousel_pickup">
+    <div v-if="!sourceData.isdetail && sourceData.ary" class="js-slider_carousel_pickup">
       <div
         class="p-card p-card_property"
         v-for="item in sourceData?.ary"

@@ -3,7 +3,7 @@
     <div class="l-header_nav-tempo lazyloaded">
       <div class="l-header_inner lazyloaded">
         <div class="l-header_tenpoName lazyloaded">
-          <a href="">
+          <a href="/">
             <p class="c-header_tenpoName-main u-wf_en">Karuizawa</p>
             <h1 class="c-header_tenpoName-sub">軽井沢駅前店</h1>
           </a>
@@ -323,15 +323,11 @@
         <div v-if="renderFavHeader.includes(path)" class="c-fixBtn lazyloaded">
           <a
             class="c-fixBtn_item item-mail"
-            href="https://www.royal-resort.co.jp/inquiry/karuizawa/sell/inspect/input/2105565966390000016653"
+            :href="`/karuizawa/submitform/input?_id=${this.$route.params.id}&form=detail`"
             target="_blank"
           >
             <span class="item_icon">
-              <img
-                :src="icon1"
-                alt=""
-                class="lazyloaded"
-              />
+              <img :src="icon1" alt="" class="lazyloaded" />
             </span>
             <span class="item_text">メールで<br />お問い合わせ</span>
           </a>
@@ -340,12 +336,8 @@
             href="https://www.royal-resort.co.jp/karuizawa/estate_list_karuizawa/sell/favo_list"
           >
             <span class="item_icon">
-              <img
-                :src="icon2"
-                alt=""
-                class="lazyloaded"
-              />
-              <span class="item_icon_num" id="fav_cnt">1</span>
+              <img :src="icon2" alt="" class="lazyloaded" />
+              <span class="item_icon_num" id="fav_cnt">{{ favTotal }}</span>
             </span>
             <span class="item_text"
               >お気に入り<br /><span class="spNon">一覧</span></span
@@ -380,6 +372,8 @@
 import $ from "jquery";
 import icon1 from "@/assets/img/icon_mail.svg";
 import icon2 from "@/assets/img/icon_fav02.svg";
+import { mapState } from 'vuex';
+
 export default {
   name: "",
   components: {},
@@ -391,17 +385,18 @@ export default {
     return {
       icon1,
       icon2,
-      renderFavHeader:['detail','favlist']
+      renderFavHeader: ["detail", "favlist"],
     };
   },
-  computed: {},
+  computed: {
+    ...mapState(['favTotal'])
+  },
   watch: {},
   mounted() {
     this.headerClick();
-    // $(window).on('load scroll', this.headerFollow());
+    this.freePhoneHandler()
   },
   beforeDestroy() {
-    // $(window).off('scroll', this.headerFollow())
   },
   methods: {
     headerClick() {
@@ -469,6 +464,12 @@ export default {
           $nav.removeClass(fixedClass);
           $main.css("margin-top", "0");
         }
+      });
+    },
+    freePhoneHandler() {
+      $(".acTriger").on("click", function () {
+        $(this).next().fadeToggle("fast");
+        $(this).toggleClass("active");
       });
     },
   },

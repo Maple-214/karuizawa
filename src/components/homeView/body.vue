@@ -740,7 +740,7 @@ import Pickup from "./pickup.vue";
 import Advlists from "./advlists.vue";
 // import Footers from './footers.vue'
 import imgBadge from "@/assets/img/badge_a1_g.png";
-import { getArticles } from "@/apis/index.ts";
+import { getHourses } from "@/apis/index.ts";
 
 export default {
   name: "",
@@ -1119,7 +1119,7 @@ export default {
       });
     },
     async getList() {
-      const data = await getArticles(this.listQuery);
+      const data = await getHourses(this.listQuery);
       this.allList = data.data.data;
       this.swiper1 = this.allList.filter((i) => i.pic_type === "1");
       this.sourceData1 = {

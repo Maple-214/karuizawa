@@ -14,10 +14,14 @@
   },
   "dependencies": {
     "@rollup/plugin-inject": "^5.0.3",
+    "@types/js-cookie": "^3.0.3",
+    "@types/lodash": "^4.14.195",
     "axios-mapper": "^0.5.9",
     "element-ui": "^2.15.13",
     "jquery": "^3.6.4",
     "jquery-match-height": "^0.7.2",
+    "js-cookie": "^3.0.5",
+    "lodash": "^4.17.21",
     "luminous-lightbox": "^2.4.0",
     "micromodal": "^0.4.10",
     "pinia": "^2.0.16",
@@ -25,7 +29,8 @@
     "slick-carousel": "^1.8.1",
     "vue": "^2.7.7",
     "vue-router": "^3.5.4",
-    "vue-slick": "^1.2.0"
+    "vue-slick": "^1.2.0",
+    "vuex": "^2.5.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",

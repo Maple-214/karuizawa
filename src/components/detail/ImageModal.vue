@@ -5,6 +5,7 @@
     aria-hidden="true"
     style="visibility: hidden; opacity: 0"
     ref="modalRef"
+    v-if="detail_list.length > 0"
   >
     <div
       class="l-slider-modal__overlay lazyloaded"
@@ -21,37 +22,32 @@
           aria-label="閉じる"
           aria-modal="true"
           class="l-slider-modal__close-btn"
-        >
-        </button>
+        ></button>
         <div class="p-modal-slider lazyloaded">
           <div class="p-modal-slider__main-wrap lazyloaded">
             <div class="p-modal-slider__main">
               <div
                 class="p-modal-slider__slide-item"
-                v-for="item in this._props.detail_list"
-                :key="item"
+                v-for="item in detail_list"
+                :key="item.url"
               >
                 <figure>
                   <div class="__img lazyloaded">
-                    <img
-                      :src="item"
-                      class="ls-is-cached lazyloaded"
-                    />
+                    <img :src="item.url" class="ls-is-cached lazyloaded" />
                   </div>
-                  <figcaption>可愛らしい外観です。</figcaption>
+                  <figcaption>{{ detail_desc }}</figcaption>
                 </figure>
               </div>
             </div>
           </div>
           <div class="p-modal-slider__thumb">
             <div
-              
               class="p-modal-slider__thumb-item lazyload"
-              v-for="item in this._props.detail_list"
-              :key="item"
+              v-for="item in detail_list"
+              :key="item.url"
             >
               <span>
-                <img :src="item" alt="" class="lazyload" />
+                <img :src="item.url" alt="" class="lazyload" />
               </span>
             </div>
           </div>
@@ -70,85 +66,90 @@ export default {
   name: "",
   components: {},
   mixins: [],
-  // props: {
-  //   detail_list: Array,
-  // },
-  props:['detail_list'],
+  props: {
+    detail_list: Array,
+    detail_desc: String
+  },
   data() {
-    return {
-      detail_list2: [
-        "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_10.jpg?iid=464459707",
-        "https://royal-h.es-img.jp/sale/img/2105565966390000017552/0000000002105565966390000017552_13.jpg?iid=37754731&size=290x210",
-        "https://royal-h.es-img.jp/sale/img/2105565966390000015869/0000000002105565966390000015869_13.jpg?iid=83040122&size=290x210",
-      ],
-    };
+    return {};
   },
   computed: {},
-  watch: {},
-  mounted() {
-    // モーダル要素が無ければ処理中断
-    if (!$("#js-swiper-modal").length) return;
-
-    const sliderMainSelector = "#js-swiper-modal .p-modal-slider__main"; // スライダー メイン
-    const sliderThumbSelector = "#js-swiper-modal .p-modal-slider__thumb"; // スライダー サムネイル
-
-    const slideCountClass = "p-modal-slider__slide-count"; // スライド総数の親のクラス
-    const nowCountClass = "_now"; // 現在のスライド番号
-    const allCountClass = "_all"; // 全てのスライド数
-
-    // microModal初期化
-    MicroModal.init({
-      awaitOpenAnimation: true,
-      awaitCloseAnimation: true,
-      openClass: "is-active",
-      onShow: function (_modal, _btn) {
-        if (_modal.id === "js-swiper-modal") {
-          console.log(99,_btn.dataset);
-          $(sliderMainSelector)
-            // .not(".slick-initialized")
-            .slick("slickGoTo", Number(_btn.dataset.index));
-        }
-      },
-    });
-    // slick（メイン）初期化
-    $(sliderMainSelector)
-      .on("init", function (_ev, _slick) {
-        $(this).append(
-          `<div style="padding: 5px 10px;left: 10px;top: 10px;color: #fff;font-size: 12px;text-align: right; background-color: rgba(0, 0, 0, .8);border-radius: 4px; position: absolute" class="${slideCountClass}"><span class="${nowCountClass}"></span> / <span class="${allCountClass}"></span></div>`
-        );
-        $(`.${nowCountClass}`).text(_slick.currentSlide + 1);
-        $(`.${allCountClass}`).text(_slick.slideCount);
-      })
-      // 初期化
-      .not(".slick-initialized")
-      .slick({
-        asNavFor: sliderThumbSelector,
-      })
-      // スライド切替時にスライド番号更新
-      .on("beforeChange", function (_ev, _slick, _currentSlide, _nextSlide) {
-        console.log({ _ev, _slick, _currentSlide, _nextSlide });
-        $(`.${nowCountClass}`).text(_nextSlide + 1);
-      });
-
-    // slick（サムネイル）初期化
-    $(sliderThumbSelector)
-      .not(".slick-initialized")
-      .slick({
-        slidesToShow: 6,
-        arrows: false,
-        asNavFor: sliderMainSelector,
-        focusOnSelect: true,
-        responsive: [
-          {
-            breakpoint: 640, // 399px以下のサイズに適用
-            settings: {
-              slidesToShow: 5,
-            },
-          },
-        ],
-      });
+  watch: {
+    detail_list(_new, _old) {
+      if (_new.length > 0) {
+        this.$nextTick(() => {
+          this.init();
+        });
+      }
+    },
   },
-  methods: {},
+  mounted() {},
+  methods: {
+    init() {
+      // モーダル要素が無ければ処理中断
+      if (!$("#js-swiper-modal").length) return;
+
+      const sliderMainSelector = "#js-swiper-modal .p-modal-slider__main"; // スライダー メイン
+      const sliderThumbSelector = "#js-swiper-modal .p-modal-slider__thumb"; // スライダー サムネイル
+
+      const slideCountClass = "p-modal-slider__slide-count"; // スライド総数の親のクラス
+      const nowCountClass = "_now"; // 現在のスライド番号
+      const allCountClass = "_all"; // 全てのスライド数
+
+      // microModal初期化
+      MicroModal.init({
+        awaitOpenAnimation: true,
+        awaitCloseAnimation: true,
+        openClass: "is-active",
+        onShow: function (_modal, _btn) {
+          if (_modal.id === "js-swiper-modal") {
+            console.log(99, _btn.dataset);
+            $(sliderMainSelector).slick(
+              "slickGoTo",
+              Number(_btn.dataset.index)
+            );
+          }
+        },
+      });
+      // slick（メイン）初期化
+      $(sliderMainSelector)
+        .on("init", function (_ev, _slick) {
+          $(this).append(
+            `<div style="padding: 5px 10px;left: 10px;top: 10px;color: #fff;font-size: 12px;text-align: right; background-color: rgba(0, 0, 0, .8);border-radius: 4px; position: absolute" class="${slideCountClass}"><span class="${nowCountClass}"></span> / <span class="${allCountClass}"></span></div>`
+          );
+          $(`.${nowCountClass}`).text(_slick.currentSlide + 1);
+          $(`.${allCountClass}`).text(_slick.slideCount);
+        })
+        // 初期化
+        .not(".slick-initialized")
+        .slick({
+          asNavFor: sliderThumbSelector,
+        })
+        // スライド切替時にスライド番号更新
+        .on("beforeChange", function (_ev, _slick, _currentSlide, _nextSlide) {
+          console.log({ _ev, _slick, _currentSlide, _nextSlide });
+          $(`.${nowCountClass}`).text(_nextSlide + 1);
+        });
+
+      // slick（サムネイル）初期化
+      $(sliderThumbSelector)
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 6,
+          arrows: false,
+          asNavFor: sliderMainSelector,
+          focusOnSelect: true,
+          responsive: [
+            {
+              breakpoint: 640, // 399px以下のサイズに適用
+              settings: {
+                slidesToShow: 5,
+              },
+            },
+          ],
+        });
+    },
+  },
 };
 </script>
 
