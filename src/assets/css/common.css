@@ -2315,7 +2315,7 @@ container
   background-position: left center;
 }
 
-.l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-mansion,
+/* .l-header .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-mansion,
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-mansion,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-mansion {
   background-image: url(@/assets/img/ico-mansion.png);
@@ -2347,7 +2347,7 @@ container
 .l-header .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-season,
 .l-header .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-season {
   background-image: url(@/assets/img/ico-season.png);
-}
+} */
 
 .l-header_nav-tempo .c-btn.c-linkBtn_prev {
   background: none;
@@ -7670,7 +7670,7 @@ a.c-linkBtn_off,
   background-position: left center;
 }
 
-.tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-mansion,
+/* .tenpoTop .l-buy .l-buy_2nd .l-buy_2nd_list.list-type a.type-mansion,
 .tenpoTop .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-mansion,
 .tenpoTop .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-mansion {
   background-image: url(../img/atami/common/ico-mansion.png);
@@ -7702,7 +7702,7 @@ a.c-linkBtn_off,
 .tenpoTop .l-rent .l-rent_2nd .l-rent_2nd_list.list-type a.type-season,
 .tenpoTop .l-rentVer02 .l-rentVer02_2nd .l-rentVer02_2nd_list.list-type a.type-season {
   background-image: url(../img/atami/common/ico-season.png);
-}
+} */
 
 /**/
 .tenpoTop .tab_content .l-sell .l-sell_2nd .l-sell_2nd_list dd,

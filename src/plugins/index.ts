@@ -1,3 +1,4 @@
+// @ts-ignore
 import type _Vue from "vue";
 import $ from 'jquery';
 import 'jquery-match-height';
