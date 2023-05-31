@@ -1,6 +1,8 @@
+// @ts-ignore
 import Vue from 'vue'
 // import { createPinia, PiniaVuePlugin } from 'pinia'
 import { adaptHeightPlugin } from './plugins'
+// @ts-ignore
 import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui';

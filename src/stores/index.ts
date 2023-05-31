@@ -1,5 +1,5 @@
 // store.js
-
+// @ts-ignore
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Cookies from 'js-cookie';
