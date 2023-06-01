@@ -7,7 +7,7 @@
           v-for="item in swiper1"
           :key="item._id"
         >
-          <a :href="'/karuizawa/detail/' + item._id" target="_blank">
+          <a :href="'/#/karuizawa/detail/' + item._id" target="_blank">
             <div class="tenchi">
               <img :src="item.preview_image.url" alt="" />
             </div>
