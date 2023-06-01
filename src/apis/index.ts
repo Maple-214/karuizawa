@@ -105,11 +105,11 @@ export interface HourseModel {
 }
 
 export const getHourses = (params: any) => {
-    return https().request<RootObject<ArticleList<HourseModel>>>('hourse/hourses', Method.GET, params, ContentType.json)
+    return https().request<RootObject<ArticleList<HourseModel>>>('api/hourse/hourses', Method.GET, params, ContentType.json)
 }
 export const getHoursesDetail = (params: any) => {
-    return https().request<RootObject<ArticleList<HourseModel>>>('hourse/detail', Method.GET, params, ContentType.json)
+    return https().request<RootObject<ArticleList<HourseModel>>>('api/hourse/detail', Method.GET, params, ContentType.json)
 }
 export const getfavlists = (params: any) => {
-    return https().request<RootObject<ArticleList<HourseModel>>>('hourse/favlist', Method.POST, params, ContentType.json)
+    return https().request<RootObject<ArticleList<HourseModel>>>('api/hourse/favlist', Method.POST, params, ContentType.json)
 }
