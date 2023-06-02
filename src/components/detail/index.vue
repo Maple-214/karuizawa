@@ -562,7 +562,7 @@
               <div class="l-flex_item c-mail">
                 <p>
                   <a
-                    :href="`/karuizawa/submitform/input?_id=${detailSource._id}&form=detail`"
+                    :href="`/#/karuizawa/submitform/input?_id=${detailSource._id}&form=detail`"
                     class="icon-mail01 c-linkBtn_emp"
                     target="_blank"
                     >メールでお問い合わせ</a
@@ -611,7 +611,7 @@
           <div class="l-flex_item c-mail">
             <p>
               <a
-                :href="`/karuizawa/submitform/input?_id=${detailSource._id}&form=detail`"
+                :href="`/#/karuizawa/submitform/input?_id=${detailSource._id}&form=detail`"
                 target="_blank"
                 class="icon-mail01 c-linkBtn_emp"
                 >メールでお問い合わせ</a

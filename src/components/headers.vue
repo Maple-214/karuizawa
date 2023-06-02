@@ -323,7 +323,7 @@
         <div v-if="renderFavHeader.includes(path)" class="c-fixBtn lazyloaded">
           <a
             class="c-fixBtn_item item-mail"
-            :href="`/karuizawa/submitform/input?_id=${this.$route.params.id}&form=detail`"
+            :href="`/#/karuizawa/submitform/input?_id=${this.$route.params.id}&form=detail`"
             target="_blank"
           >
             <span class="item_icon">
@@ -333,7 +333,7 @@
           </a>
           <a
             class="c-fixBtn_item item-favorite"
-            href="https://www.royal-resort.co.jp/karuizawa/estate_list_karuizawa/sell/favo_list"
+            href=""
           >
             <span class="item_icon">
               <img :src="icon2" alt="" class="lazyloaded" />
