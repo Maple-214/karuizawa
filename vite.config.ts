@@ -8,6 +8,7 @@ import inject from '@rollup/plugin-inject'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/',
   plugins: [
     vue2(),
     vue2Jsx(),

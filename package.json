@@ -1,6 +1,7 @@
 {
-  "name": "karuizawa-project",
-  "version": "0.0.0",
+  "name": "karuizawa-web",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "start": "vite",
     "build": "run-p type-check build-only",
