@@ -18,7 +18,7 @@
           :key="item._id"
         >
           <a
-            :href="'/karuizawa/detail/' + item._id"
+            :href="'/#/karuizawa/detail/' + item._id"
             target="_blank"
             tabindex="0"
           >
@@ -70,7 +70,7 @@
         v-for="item in sourceData?.ary"
         :key="item.id"
       >
-        <a :href="'/karuizawa/detail/' + item._id" target="_blank" tabindex="0">
+        <a :href="'/#/karuizawa/detail/' + item._id" target="_blank" tabindex="0">
           <div class="c-card_pic c-badge_movie c-badge_360">
             <div class="tenchi">
               <img :src="item.preview_image.url" alt="" />
