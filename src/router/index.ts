@@ -20,7 +20,7 @@ const router = new VueRouter({
         {
           path: '/karuizawa/detail/:id',
           name: 'detail',
-          component: () => import(/* webpackChunkName: "HomeView" */ '@/components/detail/Index.vue'),
+          component: () => import(/* webpackChunkName: "HomeView" */ '@/components/detail/IndexHome.vue'),
         },
         {
           path: '/karuizawa/favlist',
