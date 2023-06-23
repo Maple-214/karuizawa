@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Index from "@/components/detail/Index.vue";
+import Index from "../components/detail/IndexHome.vue";
 
 
 export default {
