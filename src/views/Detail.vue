@@ -3,7 +3,9 @@
 </template>
 
 <script>
-import Index from '../components/detail/Index.vue'
+import Index from "@/components//detail/Index.vue";
+
+
 export default {
     name: 'KaruizawaDetail',
     comments:{
