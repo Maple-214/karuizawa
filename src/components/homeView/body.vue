@@ -1,6 +1,6 @@
 <template>
-  <div class="l-contents tenpoTop" style="padding-bottom: 0px;">
-    <section class="js-sliderWrap_carousel">
+  <div class="l-contents tenpoTop" style="padding-bottom: 0px">
+    <section v-if="swiper1.length > 0" class="js-sliderWrap_carousel">
       <div class="js-slider_carouselPic">
         <div
           class="js-slider_carouselPicItem c-pic"
@@ -39,6 +39,22 @@
               </div>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
+    <section v-if="!loading" class="js-sliderWrap_carousel">
+      <div class="js-slider_carouselPic">
+        <div
+          class="js-slider_carouselPicItem c-pic"
+          v-for="item in 5"
+          :key="item"
+        >
+          <el-skeleton style="" animated>
+            <template slot="template">
+              <el-skeleton-item variant="image" style="height: 340px" />
+            </template>
+          </el-skeleton>
+          <el-skeleton :rows="4" animated />
         </div>
       </div>
     </section>
@@ -753,6 +769,7 @@ export default {
   props: {},
   data() {
     return {
+      loading: false,
       items: [
         {
           id: 1,
@@ -971,6 +988,7 @@ export default {
   },
   watch: {},
   mounted() {
+    this.initSlick();
     this.getList();
     this.$adaptHeight();
     this.cLagPdTnoneHandler();
@@ -1154,6 +1172,7 @@ export default {
       };
 
       this.$nextTick(() => {
+        this.loading = true;
         this.initSlick();
       });
     },
