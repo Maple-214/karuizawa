@@ -1126,9 +1126,9 @@ a.underline:hover {
 }
 
 /*IE6,7対策 （haslayout対策）*/
-.u-cf {
+/* .u-cf {
   *zoom: 1;
-}
+} */
 
 p+.c-pic {
   margin-top: 20px;
@@ -5923,7 +5923,7 @@ a.c-linkBtn_off,
   margin: 0 -10px 0;
   padding: 15px 0;
 }
-.js-slider_carousel_pickup .slick-list {
+.js-slider_carousel_pickup .slick-list, .js-slider_carousel_pickup_loading .slick-list {
   margin: 0 -10px 0;
   padding: 15px 0;
 }
@@ -5937,7 +5937,7 @@ a.c-linkBtn_off,
   }
 }
 @media screen and (max-width: 1040px) {
-  .js-slider_carousel_pickup .slick-list {
+  .js-slider_carousel_pickup .slick-list, .js-slider_carousel_pickup_loading .slick-list {
     padding-top: 15px !important;
     padding-bottom: 15px !important;
     overflow: visible;
@@ -5949,7 +5949,7 @@ a.c-linkBtn_off,
   margin: 0 10px 0;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
-.js-slider_carousel_pickup .p-card {
+.js-slider_carousel_pickup .p-card, .js-slider_carousel_pickup_loading .p-card{
   margin: 0 10px 0;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }

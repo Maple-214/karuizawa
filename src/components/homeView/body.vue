@@ -1,5 +1,6 @@
 <template>
   <div class="l-contents tenpoTop" style="padding-bottom: 0px">
+    <!-- 首页banner轮播 -->
     <section v-if="swiper1.length > 0" class="js-sliderWrap_carousel">
       <div class="js-slider_carouselPic">
         <div
@@ -42,7 +43,7 @@
         </div>
       </div>
     </section>
-    <section v-if="!loading" class="js-sliderWrap_carousel">
+    <section v-if="loading" class="js-sliderWrap_carousel">
       <div class="js-slider_carouselPic">
         <div
           class="js-slider_carouselPicItem c-pic"
@@ -58,6 +59,7 @@
         </div>
       </div>
     </section>
+    <!--  軽井沢エリアの不動産 -->
     <section class="l-innerWrap l-contSection l-etcWrap">
       <h2 class="l-mainCopy">
         <span class="inline-b">軽井沢エリアの</span>
@@ -99,33 +101,23 @@
         ※1.熱海・軽井沢・伊東・箱根のリゾート物件で仲介会社がネット上で公開している掲載数の合計　※2.現在登録している物件数（商談中の物件含む）
       </p>
     </section>
-    <section class="l-contSection" style="overflow-x: hidden">
+    <!--  -->
+    <section class="pg-areatop-wrapper l-container" style="margin-bottom: 20px">
       <div class="l-innerWrap lazyloaded">
-        <!-- <div class="js-slider_carousel lazyloaded">
-          <div
-            class="p-card lazyloaded"
-            v-for="item in jsSliderCarousel"
-            :key="item.id"
-          >
-            <a href="" target="_blank" rel="noopener noreferrer">
-              <div class="c-card_pic lazyloaded">
-                <div class="tenchi lazyloaded">
-                  <img
-                    src="https://www.royal-resort.co.jp/wp-content/uploads/2021/12/thumb12.jpg"
-                    class="attachment-medium size-medium lazyloading"
-                    alt="事業用地・店舗・ペンション・アパート特集"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div class="heightLine c-card_txt lazyloaded">
-                <p class="c-tits">事業用地・店舗・ペンション・アパート特集</p>
-              </div>
-            </a>
-          </div>
-        </div> -->
+        <a href="/" target="_blank">
+          <img
+            src="https://www.royal-resort.co.jp/src/img/karuizawa/top/ardebaran_pc.png?ver=1_01"
+            alt="アルデバラン軽井沢 軽井沢駅徒歩9分 全16邸 6/5（月）登録販売開始！"
+            width="1000"
+            height="190"
+            data-src="https://www.royal-resort.co.jp/src/img/karuizawa/top/ardebaran_pc.png?ver=1_01"
+            loading="lazy"
+            class="ls-is-cached lazyloaded"
+          />
+        </a>
       </div>
     </section>
+    <!-- adv1  -->
     <div class="l-contSection l-innerWrap lazyloaded">
       <ul class="c-tabMenu_nav">
         <li class="tab_item is-active">PICK UP</li>
@@ -135,7 +127,7 @@
         <li class="tab_item">貸したい</li>
       </ul>
     </div>
-    <div style="overflow-x: hidden" class="c-lag c-lag_pdTnone lazyloaded">
+    <div style="overflow-x: hidden;" class="c-lag c-lag_pdTnone lazyloaded">
       <div class="l-innerWrap lazyloaded">
         <section class="">
           <div class="p-tabMenu c-tabMenu_content lazyloaded">
@@ -145,24 +137,29 @@
               style="display: block"
             >
               <Pickup
+                :loading="loading"
                 :sourceData="sourceData1"
-                SectionClassName="l-contSection"
+                sectionClassName="l-contSection"
               />
               <Pickup
+                :loading="loading"
                 :sourceData="sourceData2"
-                SectionClassName="l-contSection"
+                sectionClassName="l-contSection"
               />
               <Pickup
+                :loading="loading"
                 :sourceData="sourceData3"
-                SectionClassName="l-contSection"
+                sectionClassName="l-contSection"
               />
               <Pickup
+                :loading="loading"
                 :sourceData="sourceData4"
-                SectionClassName="l-contSection"
+                sectionClassName="l-contSection"
               />
               <Pickup
+                :loading="loading"
                 :sourceData="sourceData5"
-                SectionClassName="l-contSection"
+                sectionClassName="l-contSection"
               />
             </div>
             <div
@@ -383,13 +380,7 @@
                     </div>
                     <div class="l-form_btnBox lazyload">
                       <p class="c-btn c-btn_search">
-                        <input
-                          type="button"
-                          onclick="search_list('/karuizawa/estate_list_karuizawa/sell/','#search_sell_tab')"
-                          value="検索"
-                          name=""
-                          class=""
-                        />
+                        <input type="button" value="検索" name="" class="" />
                       </p>
                     </div>
                   </form>
@@ -769,131 +760,35 @@ export default {
   props: {},
   data() {
     return {
-      loading: false,
-      items: [
-        {
-          id: 1,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 2,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 3,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 4,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 5,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 6,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 7,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 8,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 9,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 10,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 11,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 12,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 13,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 14,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 15,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 16,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 17,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-      ],
+      loading: true,
       swiper1: [],
       allList: [],
-      jsSliderCarousel: [
-        {
-          id: 1,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 2,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 3,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 4,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 5,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 6,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 7,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 8,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 9,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 10,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-        {
-          id: 11,
-          src: "https://royal-h.es-img.jp/sale/img/2105565966390000015373/0000000002105565966390000015373_10.jpg?iid=19273583&size=600x400",
-        },
-      ],
       imgBadge,
-      sourceData1: {},
-      sourceData2: {},
-      sourceData3: {},
-      sourceData4: {},
-      sourceData5: {},
+      sourceData1: {
+        title: "新着物件",
+        showAll: true,
+        isdetail: false,
+      },
+      sourceData2: {
+        title: "営業担当のオススメ物件",
+        showAll: true,
+        isdetail: false,
+      },
+      sourceData3: {
+        title: "価格変更",
+        showAll: true,
+        isdetail: false,
+      },
+      sourceData4: {
+        title: "新着賃貸物件",
+        showAll: true,
+        isdetail: false,
+      },
+      sourceData5: {
+        title: "おすすめ賃貸物件",
+        showAll: true,
+        isdetail: false,
+      },
       advlists1: [
         {
           id: 1,
@@ -995,7 +890,7 @@ export default {
   },
   methods: {
     initSlick() {
-      const b = $(".js-slider_carouselPic")
+      $(".js-slider_carouselPic")
         .not(".slick-initialized")
         .slick({
           asNavFor: ".js-slider_carouselPicNav",
@@ -1042,7 +937,7 @@ export default {
           ],
         });
 
-      var a = $(".js-slider_carouselPicNav")
+      $(".js-slider_carouselPicNav")
         .not(".slick-initialized")
         .slick({
           asNavFor: ".js-slider_carouselPic",
@@ -1089,7 +984,7 @@ export default {
           ],
         });
 
-      $(".js-slider_carousel")
+      $(".js-slider_carousel_pickup")
         .not(".slick-initialized")
         .slick({
           adaptiveHeight: false,
@@ -1097,7 +992,6 @@ export default {
           dots: true,
           slidesToShow: 3,
           slidesToScroll: 1,
-          mobileFirst: true,
           responsive: [
             {
               breakpoint: 768,
@@ -1141,38 +1035,28 @@ export default {
       this.allList = data.data.data;
       this.swiper1 = this.allList.filter((i) => i.pic_type === "1");
       this.sourceData1 = {
+        ...this.sourceData1,
         ary: this.allList.filter((i) => i.pic_type === "2"),
-        title: "新着物件",
-        showAll: true,
-        isdetail: false,
       };
       this.sourceData2 = {
+        ...this.sourceData2,
         ary: this.allList.filter((i) => i.pic_type === "3"),
-        title: "営業担当のオススメ物件",
-        showAll: true,
-        isdetail: false,
       };
       this.sourceData3 = {
+        ...this.sourceData3,
         ary: this.allList.filter((i) => i.pic_type === "4"),
-        title: "価格変更",
-        showAll: true,
-        isdetail: false,
       };
       this.sourceData4 = {
+        ...this.sourceData4,
         ary: this.allList.filter((i) => i.pic_type === "5"),
-        title: "新着賃貸物件",
-        showAll: true,
-        isdetail: false,
       };
       this.sourceData5 = {
+        ...this.sourceData5,
         ary: this.allList.filter((i) => i.pic_type === "6"),
-        title: "おすすめ賃貸物件",
-        showAll: true,
-        isdetail: false,
       };
 
       this.$nextTick(() => {
-        this.loading = true;
+        this.loading = false;
         this.initSlick();
       });
     },

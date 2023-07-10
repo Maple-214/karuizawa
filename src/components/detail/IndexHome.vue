@@ -591,11 +591,10 @@
         <!-- <Pickup :sourceData="sourceData2" SectionClassName="c-lag" /> -->
       </main>
       <!-- -->
-      <ImageModal
-        :detail_list="detail_list"
-        :detail_desc="detailSource.detail_desc"
-      />
+      <ImageModal :detail_list="detail_list" :detail_desc="detailSource.detail_desc"/>
+      <!--  -->
       <OneImageModal :sourceImg="detailSource.house_structure_picture" />
+      <!--  -->
       <div class="float-contact pcNon">
         <div class="l-flex">
           <div class="l-flex_item c-tel">
