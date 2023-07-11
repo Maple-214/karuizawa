@@ -1,8 +1,9 @@
 <template>
   <div class="l-detail">
     <div class="l-container estateDetail">
-      <main v-if="detailSource">
-        <section class="c-resultDetail_head l-innerWrap">
+      <main>
+        <!-- 顶部描述部分 -->
+        <section v-if="detailSource._id" class="c-resultDetail_head l-innerWrap">
           <div class="c-titleBox">
             <div class="l-flex_picup">
               <ul class="p-pickupLabel">
@@ -66,15 +67,58 @@
             </div>
           </div>
         </section>
-        <section class="c-resultDetail_outline l-innerWrap">
-          <div class="c-resultDetail_outline_img">
-            <div class="js-modalWrap_estateDetail_head atami p-mv-photo">
-              <button
-                class="js-modalWrap_estateDetail_item"
-                data-micromodal-trigger="js-swiper-modal"
-                data-index="0"
-                v-if="detail_list[0]"
+         <!-- 顶部描述部分骨架屏 -->
+         <section v-if="!detailSource._id" class="c-resultDetail_head l-innerWrap">
+          <div class="c-titleBox" style="width: 100%;">
+            <el-skeleton :rows="6" animated />
+          </div>
+          <div class="c-btnBox">
+            <div class="c-btn_favorite">
+              <a
+                href=""
+                @click.prevent="addFavoriteHandler"
+                :class="isFavactive ? 'navi_favo is-active' : 'navi_favo'"
               >
+                <p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    version="1.1"
+                    id="レイヤー_1"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 80 80"
+                    style="enable-background: new 0 0 80 80"
+                    xml:space="preserve"
+                    class="js-deSvg icon_fav ls-is-cached replaced-svg"
+                  >
+                    <path
+                      class="st0"
+                      d="M40.5,71.3c-6.5-4.2-35-23.8-35-44.5c0-8.4,4.7-17.5,15-17.5c8.4,0,17.5,5.7,17.5,15c0,1.4,1.1,2.5,2.5,2.5  c1.4,0,2.5-1.1,2.5-2.5c0-9.3,9.1-15,17.5-15c10.3,0,15,9.1,15,17.5C75.5,47.5,47,67.1,40.5,71.3z"
+                    ></path>
+                    <path
+                      class="st1"
+                      d="M60.5,4.2c-8.7,0-16.3,4.4-20,10.8c-3.7-6.4-11.3-10.8-20-10.8c-13.1,0-20,11.3-20,22.5  c0,26.1,37.1,48.7,38.7,49.6c0.4,0.2,0.8,0.4,1.3,0.4c0.4,0,0.9-0.1,1.3-0.4c1.6-0.9,38.7-23.5,38.7-49.6  C80.5,15.6,73.6,4.2,60.5,4.2z M40.5,71.3c-6.5-4.2-35-23.8-35-44.5c0-8.4,4.7-17.5,15-17.5c8.4,0,17.5,5.7,17.5,15  c0,1.4,1.1,2.5,2.5,2.5c1.4,0,2.5-1.1,2.5-2.5c0-9.3,9.1-15,17.5-15c10.3,0,15,9.1,15,17.5C75.5,47.5,47,67.1,40.5,71.3z"
+                    ></path>
+                  </svg>
+                </p>
+                <p class="c-text">お気に入り<br />追加</p>
+              </a>
+            </div>
+            <div class="c-btn_printing">
+              <a href="javascript:void(0)" @click.prevent="print_window">
+                <p class="icon-print01"></p>
+                <p class="c-text">印刷する</p>
+              </a>
+            </div>
+          </div>
+        </section>
+        <!--  -->
+        <section class="c-resultDetail_outline l-innerWrap">
+          <!-- 左边图片部分 -->
+          <div v-if="detail_list[0]" class="c-resultDetail_outline_img">
+            <div class="js-modalWrap_estateDetail_head atami p-mv-photo">
+              <button class="js-modalWrap_estateDetail_item" data-micromodal-trigger="js-swiper-modal" data-index="0">
                 <img :src="detail_list[0].url" alt="" class="" />
               </button>
               <button
@@ -100,7 +144,24 @@
             </p>
             <p></p>
           </div>
-          <div class="c-resultDetail_outline_text">
+          <!-- 左边图片部分骨架屏 -->    
+          <div v-if="!detail_list[0]" class="c-resultDetail_outline_img">
+            <div class="js-modalWrap_estateDetail_head atami p-mv-photo">
+              <button class="js-modalWrap_estateDetail_item" style="width: 100%;">
+                <el-skeleton animated>
+                  <template slot="template">
+                    <div class="container">
+                      <div class="custom_item">
+                        <el-skeleton-item  variant="image"/>
+                      </div>
+                    </div>
+                  </template>
+                </el-skeleton>
+              </button>
+            </div>
+          </div>
+          <!-- 右边图片部分 -->
+          <div v-if="detailSource.price" class="c-resultDetail_outline_text">
             <dl class="outline_main">
               <dt class="c-price">価格</dt>
               <dd>
@@ -131,7 +192,12 @@
               <li><a href="#movie" class="ico-movie">動画掲載物件</a></li>
             </ul>
           </div>
+          <!-- 右边图片部分骨架屏 -->
+          <div v-if="!detailSource.price" class="c-resultDetail_outline_text">
+            <el-skeleton :rows="10" animated />
+          </div>
         </section>
+        <!--  -->
         <section class="l-contSection">
           <div class="l-innerWrap">
             <div class="js-modalWrap_estateDetail atami">
@@ -920,6 +986,21 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 宽高比，高度是宽度的 75% */
+}
+.custom_item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.el-skeleton.is-animated .el-skeleton__item {
+  height: 100%;
+}
 .st0 {
   fill: #ffffff;
 }
