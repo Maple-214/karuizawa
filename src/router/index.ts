@@ -48,7 +48,7 @@ const router = new VueRouter({
             },
             {
               path: '/karuizawa/submitform/finish',
-              name: 'submitformconfirm',
+              name: 'submitformconfinish',
               component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Finish.vue'),
             },
           ]
