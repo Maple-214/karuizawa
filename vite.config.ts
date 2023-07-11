@@ -1,11 +1,10 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import vue2 from '@vitejs/plugin-vue2'
 import vue2Jsx from '@vitejs/plugin-vue2-jsx'
 import inject from '@rollup/plugin-inject'
-
+import commonjs from 'vite-plugin-commonjs';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
@@ -21,13 +20,12 @@ export default defineConfig({
       jQuery: "jquery",
       "windows.jQuery": "jquery"
     }),
+    commonjs()
   ],
   //全局引入
   css: {
     preprocessorOptions: {
       scss: {
-        
-      
       }
     }
   },
