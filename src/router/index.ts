@@ -42,10 +42,38 @@ const router = new VueRouter({
               component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Input.vue'),
             },
             {
+              path: '/karuizawa/submitform/input_user',
+              name: 'submitforminputuser',
+              meta: {
+                keepAlive: true // 需要缓存
+              },
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/InputUser.vue'),
+            },
+            {
+              path: '/karuizawa/submitform/input_inquiry',
+              name: 'submitforminputinquiry',
+              meta: {
+                keepAlive: true // 需要缓存
+              },
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/InputInquiry.vue'),
+            },
+            //
+            {
               path: '/karuizawa/submitform/confirm',
               name: 'submitformconfirm',
               component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/Confirm.vue'),
             },
+            {
+              path: '/karuizawa/submitform/confirm_user',
+              name: 'submitformconfirmuser',
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/ConfirmUser.vue'),
+            },
+            {
+              path: '/karuizawa/submitform/confirm_inquiry',
+              name: 'submitformconfirminquiry',
+              component: () => import(/* webpackChunkName: "HomeView" */ '@/components/submitform/ConfirmInquiry.vue'),
+            },
+            // 
             {
               path: '/karuizawa/submitform/finish',
               name: 'submitformconfinish',

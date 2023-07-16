@@ -3004,10 +3004,6 @@ form .l-form_btnBox {
   justify-content: center;
 }
 
-form .l-form_btnBox+.l-form_btnBox {
-  margin-top: 10px;
-}
-
 form .l-form_btnBox .c-btn {
   text-align: center;
   position: relative;
@@ -3272,10 +3268,15 @@ form .c-dataRequired {
 }
 
 form .c-dataErrorText {
-  background-color: rgba(233, 84, 107, 0.5);
-  margin-top: 5px;
-  padding: 1px 5px;
+  color: #e9546b;
+  font-weight: bold;
   display: block;
+}
+form .c-dataErrorText i{margin-right: 5px;}
+
+form .c-dataErrorText i::before{
+  color:#e9546b;
+  font-weight: bold;
 }
 
 form input.c-form_text {
