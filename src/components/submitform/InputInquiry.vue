@@ -22,6 +22,24 @@
             </li>
           </ol>
         </div>
+        <div
+          v-if="
+            !(
+              formData.last_name &&
+              formData.first_name &&
+              formData.mail &&
+              formData.phone1 &&
+              formData.phone2 &&
+              formData.phone3
+            )
+          "
+          class="c-form-error"
+        >
+          <p>
+            <img :src="err_icon" alt="！" />
+            入力内容を確認してください。
+          </p>
+        </div>
 
         <div class="c-titleLead">
           <p>
@@ -88,6 +106,12 @@
                 </p>
               </div>
               <p class="c-text_example">例）山田　太郎</p>
+              <p v-if="!formData.first_name" class="c-dataErrorText">
+                <i class="iconimage-alert"></i>姓を入力してください。
+              </p>
+              <p v-if="!formData.last_name" class="c-dataErrorText">
+                <i class="iconimage-alert"></i>名を入力してください。
+              </p>
 
               <!-- <p class="c-dataErrorText">エラーテキスト
  </p> -->
@@ -140,6 +164,9 @@
                 />
               </p>
               <p class="c-text_example">例）info@royal-resort.co.jp</p>
+              <p v-if="!formData.mail" class="c-dataErrorText">
+                <i class="iconimage-alert"></i> メールを正しく入力してください。
+              </p>
             </dd>
           </dl>
 
@@ -361,6 +388,15 @@
                   />
                 </p>
               </div>
+              <p v-if="!formData.phone1" class="c-dataErrorText">
+                <i class="iconimage-alert"></i>電話番号1を入力してください。
+              </p>
+              <p v-if="!formData.phone2" class="c-dataErrorText">
+                <i class="iconimage-alert"></i>電話番号2を入力してください。
+              </p>
+              <p v-if="!formData.phone3" class="c-dataErrorText">
+                <i class="iconimage-alert"></i>電話番号3を入力してください。
+              </p>
 
               <!-- <p class="c-dataErrorText">エラーテキスト
  </p> -->
@@ -493,11 +529,15 @@
 </template>
 
 <script>
+import err_icon from "@/assets/img/icon_alert.svg";
+
 export default {
   name: "KaruizawaInputInquiry",
+  
 
   data() {
     return {
+      err_icon,
       formData: {
         last_name: "",
         first_name: "",
@@ -607,4 +647,21 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.c-form-error {
+  background-color: #fdf2f4;
+  width: 100%;
+  max-width: 1040px;
+  margin: 20px auto 0;
+  padding: 40px 20px;
+}
+
+.c-form-error p {
+  color: #e9546b;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+</style>
