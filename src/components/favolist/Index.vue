@@ -325,7 +325,6 @@
                     <p>
                       <a
                         href="javascript:void(0)"
-                        @click.prevent="multi_inquiry;"
                         class="c-linkBtn_emp c-linkBtn_off"
                         >まとめて資料請求</a
                       >
@@ -393,7 +392,7 @@
                       <ul class="l-btnBox">
                         <li class="l-flex_item">
                           <a
-                            href="/inquiry/karuizawa/inquiry/input/"
+                            href="/#/karuizawa/submitform/input_inquiry"
                             class="c-btn_block c-linkBtn_emp"
                             target="_blank"
                             >お問い合わせ</a
@@ -401,7 +400,7 @@
                         </li>
                         <li class="l-flex_item">
                           <a
-                            href="/inquiry/karuizawa/quick/sell/input/"
+                            href="/#/karuizawa/submitform/input_user"
                             class="c-btn_block c-linkBtn_emp"
                             target="_blank"
                             >簡単ネット査定</a
@@ -409,7 +408,7 @@
                         </li>
                         <li class="l-flex_item">
                           <a
-                            href="/inquiry/karuizawa/instantly/input/"
+                            href="#"
                             class="c-btn_block c-linkBtn_emp"
                             target="_blank"
                             >即金買取査定</a
@@ -417,7 +416,7 @@
                         </li>
                         <li class="l-flex_item">
                           <a
-                            href="https://royal-int.jp/"
+                            href="#"
                             class="c-btn_block c-linkBtn_emp"
                             target="_blank"
                             >リフォームのご相談</a

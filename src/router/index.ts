@@ -25,7 +25,7 @@ const router = new VueRouter({
         {
           path: '/karuizawa/favlist',
           name: 'favlist',
-          component: () => import(/* webpackChunkName: "HomeView" */ '@/components/favlist/Index.vue'),
+          component: () => import(/* webpackChunkName: "HomeView" */ '@/views/FavoList.vue'),
         },
         {
           path: '/karuizawa/submitform',

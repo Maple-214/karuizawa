@@ -322,6 +322,7 @@
         </nav>
         <div v-if="renderFavHeader.includes(path)" class="c-fixBtn lazyloaded">
           <a
+            v-if="!(path === 'favlist')"
             class="c-fixBtn_item item-mail"
             :href="`/#/karuizawa/submitform/input?_id=${this.$route.params.id}&form=detail`"
             target="_blank"
@@ -333,7 +334,7 @@
           </a>
           <a
             class="c-fixBtn_item item-favorite"
-            href=""
+            href="/#/karuizawa/favlist"
           >
             <span class="item_icon">
               <img :src="icon2" alt="" class="lazyloaded" />
@@ -343,7 +344,7 @@
               >お気に入り<br /><span class="spNon">一覧</span></span
             >
           </a>
-          <div class="spNon lazyloaded">
+          <div v-if="!(path === 'favlist')" class="spNon lazyloaded">
             <dl class="item-tel">
               <dt class="acTriger">
                 <span class="icon-phone01"></span>無料通話
@@ -393,6 +394,7 @@ export default {
   },
   watch: {},
   mounted() {
+    console.log(this.path);
     this.headerClick();
     this.freePhoneHandler()
   },
