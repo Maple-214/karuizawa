@@ -110,6 +110,6 @@ export const getHourses = (params: any) => {
 export const getHoursesDetail = (params: any) => {
     return https().request<RootObject<ArticleList<HourseModel>>>('api/hourse/detail', Method.GET, params, ContentType.json)
 }
-export const getfavlists = (params: any) => {
+export const getFavLists = (params: any) => {
     return https().request<RootObject<ArticleList<HourseModel>>>('api/hourse/favlist', Method.POST, params, ContentType.json)
 }

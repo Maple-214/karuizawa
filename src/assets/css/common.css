@@ -5843,6 +5843,7 @@ a.c-linkBtn_off,
   display: inline-block;
   border: 1px solid #4d7326;
   margin-right: 5px;
+  margin-bottom: 5px;
   padding: 3px 5px;
   font-size: 1.2rem;
   color: #4d7326;

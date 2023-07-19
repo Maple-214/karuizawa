@@ -59,8 +59,12 @@
                 </div>
               </div>
             </div>
-            <section>
-              <div class="p-card_resultBox tap-item lazyloaded">
+            <section v-if="favLists.length > 0">
+              <div
+                v-for="item in favLists"
+                :key="item._id"
+                class="p-card_resultBox tap-item lazyloaded"
+              >
                 <div class="c-card_resultBox-head lazyloaded">
                   <p class="c-form_checkBox c-form_checkBox-simple">
                     <input
@@ -74,89 +78,27 @@
                   </p>
                   <div class="c-titleBox lazyloaded">
                     <ul class="p-pickupLabel">
-                      <li class="c-pickupLabel_num">物件番号：C1-406</li>
+                      <li class="c-pickupLabel_num">
+                        物件番号：{{ item._id }}
+                      </li>
                     </ul>
                     <h4 class="c-title u-wf_notoSerif">
-                      <a href="" class="tap-item-link" target="_blank"
-                        >千ヶ滝西区別荘地　戸建</a
-                      >
+                      <a :href="'/#/karuizawa/detail/' + item._id" class="tap-item-link" target="_blank">{{
+                        item.name
+                      }}</a>
                     </h4>
                     <p class="c-lead">
-                      500坪を超える敷地内に小川が流れる、せせらぎと鳥のさえずりを楽しむ邸宅！
+                      {{ item.desc }}
                     </p>
 
                     <ul class="p-categoryLabel">
                       <li
+                        v-for="tag in item.tag"
+                        :key="tag"
                         class="c-categoryLabel_item hint--info"
                         data-hint='"永住したい"'
                       >
-                        定住
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"トイレ（２ヵ所以上）"'
-                      >
-                        トイレ多
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"薪ストーブ・暖炉有"'
-                      >
-                        薪・暖炉
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"カースペース有（2台以上)"'
-                      >
-                        駐車場多
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"500坪以上"'
-                      >
-                        500坪～
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"角地"'
-                      >
-                        角地
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"日当たり良好"'
-                      >
-                        日当り
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"小川のせせらぎが聞こえる"'
-                      >
-                        小川
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"森に囲まれたい"'
-                      >
-                        緑の眺望
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"別荘地内"'
-                      >
-                        別荘地
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"床暖房有"'
-                      >
-                        床暖房
-                      </li>
-                      <li
-                        class="c-categoryLabel_item hint--info"
-                        data-hint='"ウッドデッキ"'
-                      >
-                        ウッドD
+                        {{ tag }}
                       </li>
                     </ul>
                   </div>
@@ -165,7 +107,6 @@
                       href="#note1"
                       class="non-scroll is-active"
                       id="2105565966390000015129_favorite"
-                      onclick="add_favorite('sell','2105565966390000015129');"
                     >
                       <p>
                         <svg
@@ -199,65 +140,40 @@
                     <div class="p-picBox_2col lazyloaded">
                       <div class="l-flex_item c-pic lazyloaded">
                         <img
-                          src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_10.jpg?iid=29955957&amp;size=220x220"
+                          :src="item.preview_image.url"
                           alt=""
-                          data-src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_10.jpg?iid=29955957&amp;size=220x220"
                           class="lazyloaded"
                         />
                       </div>
                       <div class="l-flex_item c-pic lazyloaded">
                         <img
-                          src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_1.jpg?iid=3964016446&amp;size=220x220"
+                          :src="item.indoor_map_desc[0].url"
                           alt=""
-                          data-src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_1.jpg?iid=3964016446&amp;size=220x220"
                           class="lazyloaded"
-                        /><noscript
-                          ><img
-                            src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_1.jpg?iid=3964016446&amp;size=220x220"
-                            alt=""
-                            data-eio="l"
-                        /></noscript>
+                        />
                       </div>
                     </div>
                     <div class="p-picBox_3col lazyloaded">
                       <div class="l-flex_item c-pic lazyloaded">
                         <img
-                          src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_13.jpg?iid=3946583887&amp;size=145x97"
+                          :src="item.indoor_map_desc[1].url"
                           alt=""
-                          data-src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_13.jpg?iid=3946583887&amp;size=145x97"
                           class="lazyloaded"
-                        /><noscript
-                          ><img
-                            src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_13.jpg?iid=3946583887&amp;size=145x97"
-                            alt=""
-                            data-eio="l"
-                        /></noscript>
+                        />
                       </div>
                       <div class="l-flex_item c-pic lazyloaded">
                         <img
-                          src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_14.jpg?iid=51255156&amp;size=145x97"
+                          :src="item.indoor_map_desc[2].url"
                           alt=""
-                          data-src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_14.jpg?iid=51255156&amp;size=145x97"
                           class="lazyloaded"
-                        /><noscript
-                          ><img
-                            src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_14.jpg?iid=51255156&amp;size=145x97"
-                            alt=""
-                            data-eio="l"
-                        /></noscript>
+                        />
                       </div>
                       <div class="l-flex_item c-pic lazyloaded">
                         <img
-                          src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_15.jpg?iid=3960936286&amp;size=145x97"
+                          :src="item.indoor_map_desc[3].url"
                           alt=""
-                          data-src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_15.jpg?iid=3960936286&amp;size=145x97"
                           class="lazyloaded"
-                        /><noscript
-                          ><img
-                            src="https://royal-h.es-img.jp/sale/img/2105565966390000015129/0000000002105565966390000015129_15.jpg?iid=3960936286&amp;size=145x97"
-                            alt=""
-                            data-eio="l"
-                        /></noscript>
+                        />
                       </div>
                     </div>
                   </div>
@@ -268,42 +184,53 @@
                         <tr>
                           <th>価格</th>
                           <td class="c-price">
-                            <span class="u-wf_num">7,980</span>万円
+                            <span class="u-wf_num">{{ item.price }}</span>万円
                           </td>
                         </tr>
                         <tr>
                           <th>所在地</th>
-                          <td>中軽井沢（北部）</td>
+                          <td>{{ item.location }}</td>
                         </tr>
                         <tr>
                           <th>最寄り駅</th>
-                          <td>しなの鉄道線「中軽井沢」駅 車約9分（約4.5km）</td>
+                          <td>{{ item.transportation }}</td>
                         </tr>
                         <tr>
                           <th>間取り</th>
-                          <td>3LDK</td>
+                          <td>{{ item.floor_plan }}</td>
                         </tr>
                         <tr>
                           <th>土地面積</th>
-                          <td>1,913.63m²</td>
+                          <td>{{ item.Land_area + "m²" }}</td>
                         </tr>
                         <tr>
                           <th>建物面積</th>
-                          <td>134.97m²</td>
+                          <td>{{ item.construction_area + "m²" }}</td>
                         </tr>
                         <tr>
                           <th>築年月</th>
-                          <td>平成17年3月</td>
+                          <td>{{ item.time }}</td>
                         </tr>
                         <tr>
                           <th>階数</th>
-                          <td>2階</td>
+                          <td>{{ item.House_structure }}</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
+            </section>
+
+            <section v-if="!(favLists.length > 0)">
+              <div
+                v-for="item in idsTotal"
+                :key="item"
+                class="p-card_resultBox tap-item lazyloaded"
+              >
+              <el-skeleton :rows="13" animated />
+              </div>
+              
             </section>
 
             <div class="c-footArea lazyloaded">
@@ -432,29 +359,39 @@
         </div>
       </div>
     </form>
-    <p id="note1" class="js-toolTip">お気に入りに追加しました</p>
-    <form
-      action="https://www.royal-resort.co.jp/inquiry/karuizawa/multi/input/"
-      id="multi_inquiry_form"
-      method="get"
-      target="_blank"
-    ></form>
+    <!-- <p id="note1" class="js-toolTip">お気に入りに追加しました</p> -->
   </div>
 </template>
 
 <script>
+import { getFavList as getFavListLocal, setFavList } from "@/utils/cookies.ts";
+import { getFavLists } from "@/apis/index.ts";
+
 export default {
   name: "KaruizawaIndex",
 
   data() {
-    return {};
+    return {
+      favLists: [],
+      idsTotal:0,
+    };
   },
 
   mounted() {
-    $(".c-allCheck .c-linkBtn_emp").addClass("c-linkBtn_off");
+    this.init();
   },
 
   methods: {
+    async init() {
+      $(".c-allCheck .c-linkBtn_emp")?.addClass("c-linkBtn_off");
+      const ids = getFavListLocal();
+      this.idsTotal = ids?.length || 0
+      console.log(ids);
+      const res = await getFavLists({ ids });
+      if (res.msg === "success") {
+        this.favLists = res.data;
+      }
+    },
     check_all(elem) {
       this.estate_check_all(elem.target);
     },
