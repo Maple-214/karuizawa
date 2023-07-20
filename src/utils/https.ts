@@ -1,5 +1,5 @@
 import HttpClient from 'axios-mapper'
-const APIHOST = import.meta.env.MODE === 'production' ? 'http://www.oppenheim.co.jp' : "http://www.oppenheim.co.jp"
+const APIHOST = import.meta.env.MODE === 'production' ? 'https://www.oppenheim.co.jp' : "https://www.oppenheim.co.jp"
 const https = (hasToken: Boolean = true) => {
   const config = {
     baseURL: APIHOST,
