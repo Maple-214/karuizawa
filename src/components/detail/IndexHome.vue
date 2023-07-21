@@ -612,7 +612,9 @@
         <section class="p-estate_contact l-contSection">
           <div class="l-innerWrap">
             <p class="c-contact_title">この物件についてのお問い合わせ</p>
-            <p class="c-contact_tenpoName">ロイヤルリゾート 軽井沢駅前店</p>
+            <!-- <p class="c-contact_tenpoName">ロイヤルリゾート 軽井沢駅前店</p> -->
+            <p class="c-contact_tenpoName">title</p>
+
             <p class="c-contact_address">
               〒389-0104　長野県北佐久郡軽井沢町軽井沢東7-1　油屋ビル1F
             </p>

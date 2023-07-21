@@ -69,7 +69,7 @@
       </div>
 
       <!-- 轮播元素 -->
-      <div
+      <!-- <div
         v-if="!sourceData.isdetail && sourceData.ary"
         class="js-slider_carousel_pickup"
       >
@@ -112,12 +112,25 @@
             </div>
           </a>
         </div>
-      </div>
+      </div> -->
 
       <!-- 骨架屏  -->
       <!-- class="js-slider_carousel_pickup_loading .js-slider_carousel" -->
-      <div
+      <!-- <div
         v-if="!sourceData.isdetail && loading"
+        class="js-slider_carousel_pickup"
+      >
+        <div class="p-card p-card_property" v-for="item in 5" :key="item">
+          <el-skeleton style="" animated>
+            <template slot="template">
+              <el-skeleton-item variant="image" style="height: 220px" />
+            </template>
+          </el-skeleton>
+          <el-skeleton :rows="4" animated />
+        </div>
+      </div> -->
+      <div
+        v-if="true"
         class="js-slider_carousel_pickup"
       >
         <div class="p-card p-card_property" v-for="item in 5" :key="item">

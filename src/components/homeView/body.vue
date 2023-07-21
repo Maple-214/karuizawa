@@ -1,7 +1,7 @@
 <template>
   <div class="l-contents tenpoTop" style="padding-bottom: 0px">
     <!-- 首页banner轮播 -->
-    <section v-if="swiper1.length > 0" class="js-sliderWrap_carousel">
+    <!-- <section v-if="swiper1.length > 0" class="js-sliderWrap_carousel">
       <div class="js-slider_carouselPic">
         <div
           class="js-slider_carouselPicItem c-pic"
@@ -42,8 +42,24 @@
           </a>
         </div>
       </div>
-    </section>
-    <section v-if="loading" class="js-sliderWrap_carousel">
+    </section> -->
+    <!-- <section v-if="loading" class="js-sliderWrap_carousel">
+      <div class="js-slider_carouselPic">
+        <div
+          class="js-slider_carouselPicItem c-pic"
+          v-for="item in 5"
+          :key="item"
+        >
+          <el-skeleton style="" animated>
+            <template slot="template">
+              <el-skeleton-item variant="image" style="height: 340px" />
+            </template>
+          </el-skeleton>
+          <el-skeleton :rows="4" animated />
+        </div>
+      </div>
+    </section> -->
+    <section v-if="true" class="js-sliderWrap_carousel">
       <div class="js-slider_carouselPic">
         <div
           class="js-slider_carouselPicItem c-pic"
@@ -62,20 +78,27 @@
     <!--  軽井沢エリアの不動産 -->
     <section class="l-innerWrap l-contSection l-etcWrap">
       <h2 class="l-mainCopy">
-        <span class="inline-b">軽井沢エリアの</span>
+        <!-- <span class="inline-b">軽井沢エリアの</span>
         <span class="inline-b">不動産・別荘・マンション・土地など、</span>
         <span class="inline-b">リゾート物件の売買・賃貸のことなら</span>
-        <span class="inline-b">ロイヤルリゾートへ。</span>
+        <span class="inline-b">ロイヤルリゾートへ。</span> -->
+        <span class="inline-b">..........</span>
+        <span class="inline-b">........................</span>
+        <span class="inline-b">........................</span>
+        <span class="inline-b">............</span>
       </h2>
       <div class="l-etc">
         <div class="p-no1">
-          <img
+          <!-- <img
             :src="imgBadgeSrc"
             alt="リゾート仲介物件HP掲載数No.1 ※1"
             class=""
-          />
+          /> -->
+          <div style="width: 120px; height: 120px;background-color: antiquewhite;border-radius: 50%;"></div>
         </div>
-        <div class="p-tenpoNum -num2 lazyloaded">
+        <div style="width: 120px; height: 120px;background-color: antiquewhite;border-radius: 50%;"></div>
+
+        <!-- <div class="p-tenpoNum -num2 lazyloaded">
           <dl class="p-tenpoNum_inner">
             <dt class="p-tenpoNum_title">売買</dt>
             <dd class="p-tenpoNum_main">
@@ -89,45 +112,65 @@
             </dd>
           </dl>
           <p class="p-att">※2</p>
-        </div>
-        <div class="p-news lazyloaded">
+        </div> -->
+        <!-- <div class="p-news lazyloaded">
           ◇ご案内について◇<br />
           いつも当店のホームページをご覧いただき誠にありがとうございます。<br />
           物件案内につきましては、当日のご案内および前日の案内予約の場合、ご見学ができない場合があります。<br />
           また、事前のご予約でも売主様の都合により日時を変更していただく事がございますので、ご理解の程よろしくお願いいたします。<br />
+        </div> -->
+        <div class="p-news lazyloaded">
+          ◇title◇<br />
+          xxxxxxxxxxxxxxxxxxxxxxxxx<br />
         </div>
       </div>
-      <p class="p-att">
+      <!-- <p class="p-att">
         ※1.熱海・軽井沢・伊東・箱根のリゾート物件で仲介会社がネット上で公開している掲載数の合計　※2.現在登録している物件数（商談中の物件含む）
+      </p> -->
+      <p class="p-att">
+       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       </p>
     </section>
     <!--  -->
     <section class="pg-areatop-wrapper l-container" style="margin-bottom: 20px">
       <div class="l-innerWrap lazyloaded">
         <a href="/" target="_blank">
-          <img
+          <!-- <img
             src="https://www.royal-resort.co.jp/src/img/karuizawa/top/ardebaran_pc.png?ver=1_01"
             alt="アルデバラン軽井沢 軽井沢駅徒歩9分 全16邸 6/5（月）登録販売開始！"
             width="1000"
             height="190"
-            data-src="https://www.royal-resort.co.jp/src/img/karuizawa/top/ardebaran_pc.png?ver=1_01"
             loading="lazy"
             class="ls-is-cached lazyloaded"
-          />
+          /> -->
+          <div
+            style="
+              width: 1000px;
+              height: 190px;
+              background-color: blanchedalmond;
+            "
+          ></div>
         </a>
       </div>
     </section>
     <!-- adv1  -->
     <div class="l-contSection l-innerWrap lazyloaded">
-      <ul class="c-tabMenu_nav">
+      <!-- <ul class="c-tabMenu_nav">
         <li class="tab_item is-active">PICK UP</li>
         <li class="tab_item">買いたい</li>
         <li class="tab_item">借りたい</li>
         <li class="tab_item">売りたい</li>
         <li class="tab_item">貸したい</li>
+      </ul> -->
+      <ul class="c-tabMenu_nav">
+        <li class="tab_item is-active">title1</li>
+        <li class="tab_item">title2</li>
+        <li class="tab_item">title3</li>
+        <li class="tab_item">title4</li>
+        <li class="tab_item">title5</li>
       </ul>
     </div>
-    <div style="overflow-x: hidden;" class="c-lag c-lag_pdTnone lazyloaded">
+    <div style="overflow-x: hidden" class="c-lag c-lag_pdTnone lazyloaded">
       <div class="l-innerWrap lazyloaded">
         <section class="">
           <div class="p-tabMenu c-tabMenu_content lazyloaded">
@@ -170,11 +213,14 @@
               <div class="tab_content_description l-form lazyloaded">
                 <div class="c-searchBox_item lazyloaded">
                   <div class="c-title_sub lazyloaded">
-                    <h3 class="c-titleText">
+                    <!-- <h3 class="c-titleText">
                       <span class="icon-conditions01"></span>種別から探す
+                    </h3> -->
+                    <h3 class="c-titleText">
+                      <span class="icon-conditions01"></span>title
                     </h3>
                   </div>
-                  <ul class="c-linkList l-flex_3col">
+                  <!-- <ul class="c-linkList l-flex_3col">
                     <li class="l-flex_item">
                       <a
                         href="https://www.royal-resort.co.jp/karuizawa/estate_list_karuizawa/sell/?kind_code=1"
@@ -203,15 +249,47 @@
                         >投資・事業用</a
                       >
                     </li>
+                  </ul> -->
+                  <ul class="c-linkList l-flex_3col">
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title</a
+                      >
+                    </li>
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title1</a
+                      >
+                    </li>
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title2</a
+                      >
+                    </li>
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title3</a
+                      >
+                    </li>
                   </ul>
                 </div>
                 <div class="c-searchBox_item lazyloaded">
                   <div class="c-title_sub lazyloaded">
                     <h3 class="c-titleText">
-                      <span class="icon-pin01"></span>エリアから物件を探す
+                      <!-- <span class="icon-pin01"></span>エリアから物件を探す -->
+                      <span class="icon-pin01"></span>title
+
                     </h3>
                   </div>
-                  <div class="c-map u-onlyPc lazyloaded">
+                  <!-- <div class="c-map u-onlyPc lazyloaded">
                     <img
                       src="https://www.royal-resort.co.jp/src/img/karuizawa/map/map_karuizawa.svg"
                       alt=""
@@ -220,15 +298,7 @@
                       class="c-map-img lazyloaded"
                       data-src="https://www.royal-resort.co.jp/src/img/karuizawa/map/map_karuizawa.svg"
                       loading="lazy"
-                    /><noscript
-                      ><img
-                        src="https://www.royal-resort.co.jp/src/img/karuizawa/map/map_karuizawa.svg"
-                        alt=""
-                        width="1366"
-                        height="1016"
-                        class="c-map-img"
-                        data-eio="l"
-                    /></noscript>
+                    />
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -333,7 +403,7 @@
                         </a>
                       </g>
                     </svg>
-                  </div>
+                  </div> -->
                   <ul class="c-linkList l-flex_3col u-onlyMobile">
                     <li class="l-flex_item">
                       <a href="" class="c-linkBtn_prev">旧軽井沢</a>
@@ -369,7 +439,9 @@
                     action="/karuizawa/estate_list_karuizawa/sell/"
                     id="search_sell_tab"
                   >
-                    <h3 class="c-tits">フリーワード検索</h3>
+                    <!-- <h3 class="c-tits">フリーワード検索</h3> -->
+                    <h3 class="c-tits">title</h3>
+
                     <div class="c-textSearch lazyload">
                       <input
                         id="sbox1"
@@ -396,10 +468,11 @@
                 <div class="c-searchBox_item lazyloaded">
                   <div class="c-title_sub lazyloaded">
                     <h3 class="c-titleText">
-                      <span class="icon-conditions01"></span>種別から探す
+                      <!-- <span class="icon-conditions01"></span>種別から探す -->
+                      <span class="icon-conditions01"></span>title
                     </h3>
                   </div>
-                  <ul class="c-linkList l-flex_3col">
+                  <!-- <ul class="c-linkList l-flex_3col">
                     <li class="l-flex_item">
                       <a
                         href="/karuizawa/estate_list_karuizawa/rent/?kind_code=1"
@@ -428,16 +501,46 @@
                         >事業用</a
                       >
                     </li>
-                    <!--                                                 <li class="l-flex_item"><a href="" class="c-linkBtn_prev">シーズン貸し</a></li> -->
+                  </ul> -->
+                  <ul class="c-linkList l-flex_3col">
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title</a
+                      >
+                    </li>
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title1</a
+                      >
+                    </li>
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title2</a
+                      >
+                    </li>
+                    <li class="l-flex_item">
+                      <a
+                        href=""
+                        class="c-linkBtn_prev"
+                        >title3</a
+                      >
+                    </li>
                   </ul>
                 </div>
                 <div class="c-searchBox_item lazyloaded">
                   <div class="c-title_sub lazyloaded">
                     <h3 class="c-titleText">
-                      <span class="icon-pin01"></span>エリアから物件を探す
+                      <!-- <span class="icon-pin01"></span>エリアから物件を探す -->
+                      <span class="icon-pin01"></span>title
                     </h3>
                   </div>
-                  <div class="c-map u-onlyPc lazyloaded">
+                  <!-- <div class="c-map u-onlyPc lazyloaded">
                     <img
                       src="https://www.royal-resort.co.jp/src/img/karuizawa/map/map_karuizawa.svg"
                       alt=""
@@ -550,7 +653,7 @@
                         </a>
                       </g>
                     </svg>
-                  </div>
+                  </div> -->
                   <ul class="c-linkList l-flex_3col u-onlyMobile">
                     <li class="l-flex_item">
                       <a href="" class="c-linkBtn_prev">旧軽井沢</a>
@@ -583,18 +686,28 @@
                 </div>
                 <div class="c-searchBox_item lazyloaded">
                   <form action="" id="search_rent_tab">
-                    <h3 class="c-tits">フリーワード検索</h3>
+                    <!-- <h3 class="c-tits">フリーワード検索</h3> -->
+                    <h3 class="c-tits">title</h3>
+
                     <div class="c-textSearch lazyloaded">
-                      <input
+                      <!-- <input
                         id="sbox1"
                         name="keyword"
                         type="text"
                         placeholder="キーワードを入力"
+                      /> -->
+                      <input
+                        id="sbox1"
+                        name="keyword"
+                        type="text"
+                        placeholder="title"
                       />
                     </div>
                     <div class="l-form_btnBox lazyloaded">
                       <p class="c-btn c-btn_search">
-                        <input type="button" value="検索" name="" class="" />
+                        <!-- <input type="button" value="検索" name="" class="" /> -->
+                        <input type="button" value="title" name="" class="" />
+
                       </p>
                     </div>
                   </form>
@@ -609,7 +722,7 @@
               <div class="tab_content_description l-form lazyloaded">
                 <div class="l-sell lazyloaded">
                   <div class="l-sell_inner lazyloaded">
-                    <div class="l-sell_2nd lazyloaded">
+                    <!-- <div class="l-sell_2nd lazyloaded">
                       <dl class="l-sell_2nd_list">
                         <dt class="u-wf_notoSerif">
                           リゾートマンション・<br />別荘のご売却
@@ -629,16 +742,24 @@
                           >
                         </dd>
                       </dl>
-                    </div>
+                    </div> -->
                     <div class="l-sell_3rd lazyloaded">
-                      <dl class="l-sell_3rd_list list-main">
+                      <!-- <dl class="l-sell_3rd_list list-main">
                         <dt>ご売却について</dt>
                         <dd><a href="">ロイヤルが選ばれる理由</a></dd>
                         <dd><a href="">売却の流れ</a></dd>
                         <dd><a href="">成約事例</a></dd>
                         <dd><a href="">購入希望者の声</a></dd>
+                      </dl> -->
+                      <dl class="l-sell_3rd_list list-main">
+                        <dt>title</dt>
+                        <dd><a href="">title1</a></dd>
+                        <dd><a href="">title2</a></dd>
+                        <dd><a href="">title3</a></dd>
+                        <dd><a href="">title4</a></dd>
                       </dl>
-                      <dl class="l-sell_3rd_list list-cv">
+
+                      <!-- <dl class="l-sell_3rd_list list-cv">
                         <dt>査定について</dt>
                         <dd>
                           <a class="cv-default" href="">
@@ -664,6 +785,33 @@
                             <span class="text-main">即金買取査定</span>
                           </a>
                         </dd>
+                      </dl> -->
+                      <dl class="l-sell_3rd_list list-cv">
+                        <dt>title</dt>
+                        <dd>
+                          <a class="cv-default" href="">
+                            <span class="text-sub"
+                              >title1</span
+                            >
+                            <span class="text-main"
+                              >title2</span
+                            >
+                          </a>
+                        </dd>
+                        <dd>
+                          <a class="cv-both" href="">
+                            <span class="text-sub">title3</span>
+                            <span class="text-main">title4</span>
+                          </a>
+                        </dd>
+                        <dd>
+                          <a class="cv-instantly" href="">
+                            <span class="text-sub"
+                              >title5</span
+                            >
+                            <span class="text-main">title6</span>
+                          </a>
+                        </dd>
                       </dl>
                     </div>
                   </div>
@@ -677,7 +825,7 @@
             >
               <div class="l-lend lazyloaded">
                 <div class="l-lend_inner lazyloaded">
-                  <div class="l-lend_2nd lazyloaded">
+                  <!-- <div class="l-lend_2nd lazyloaded">
                     <dl class="l-lend_2nd_list">
                       <dt class="u-wf_notoSerif">
                         リゾートマンション・<br />別荘の賃貸経営
@@ -691,15 +839,21 @@
                         >
                       </dd>
                     </dl>
-                  </div>
+                  </div> -->
                   <div class="l-lend_3rd lazyloaded">
-                    <dl class="l-lend_3rd_list list-main">
+                    <!-- <dl class="l-lend_3rd_list list-main">
                       <dt>賃貸経営について</dt>
                       <dd><a href="">ロイヤルが選ばれる理由</a></dd>
                       <dd><a href="">賃貸経営の流れ</a></dd>
                       <dd><a href="">よくあるご質問</a></dd>
+                    </dl> -->
+                    <dl class="l-lend_3rd_list list-main">
+                      <dt>title</dt>
+                      <dd><a href="">title1</a></dd>
+                      <dd><a href="">title2</a></dd>
+                      <dd><a href="">title3</a></dd>
                     </dl>
-                    <dl class="l-lend_3rd_list list-cv">
+                    <!-- <dl class="l-lend_3rd_list list-cv">
                       <dt>査定について</dt>
                       <dd>
                         <a class="cv-default" href="">
@@ -711,6 +865,27 @@
                         <a class="cv-both" href="">
                           <span class="text-sub">売却と賃貸を同時に査定</span>
                           <span class="text-main">どっちも査定</span>
+                        </a>
+                      </dd>
+                    </dl> -->
+                    <dl class="l-lend_3rd_list list-cv">
+                      <dt>title</dt>
+                      <dd>
+                        <a class="cv-default" href="">
+                          <span class="text-sub">title1</span>
+                          <span class="text-main">title2</span>
+                        </a>
+                      </dd>
+                      <!-- <dd>
+                        <a class="cv-both" href="">
+                          <span class="text-sub">売却と賃貸を同時に査定</span>
+                          <span class="text-main">どっちも査定</span>
+                        </a>
+                      </dd> -->
+                      <dd>
+                        <a class="cv-both" href="">
+                          <span class="text-sub">title</span>
+                          <span class="text-main">title1</span>
                         </a>
                       </dd>
                     </dl>
@@ -765,27 +940,37 @@ export default {
       allList: [],
       imgBadge,
       sourceData1: {
-        title: "新着物件",
+        // title: "新着物件",
+        title: "session1",
+
         showAll: true,
         isdetail: false,
       },
       sourceData2: {
-        title: "営業担当のオススメ物件",
+        // title: "営業担当のオススメ物件",
+        title: "session5",
+
         showAll: true,
         isdetail: false,
       },
       sourceData3: {
-        title: "価格変更",
+        // title: "価格変更",
+        title: "session2",
+
         showAll: true,
         isdetail: false,
       },
       sourceData4: {
-        title: "新着賃貸物件",
+        // title: "新着賃貸物件",
+        title: "session3",
+
         showAll: true,
         isdetail: false,
       },
       sourceData5: {
-        title: "おすすめ賃貸物件",
+        // title: "おすすめ賃貸物件",
+        title: "session4",
+
         showAll: true,
         isdetail: false,
       },

@@ -3,9 +3,12 @@
         <div class="l-footer_inner main lazyloaded">
             <div class="l-footer_logo lazyloaded">
                 <a href="" target="_blank">
-                    <img src="https://www.royal-resort.co.jp/src/img/common/logo_group01.svg" alt="ロイヤルハウジンググループ" width="76"
-                        height="60" loading="lazy" class=" lazyloaded">
-                    <p>ロイヤルハウジング<br>グループ</p>
+                    <!-- <img src="https://www.royal-resort.co.jp/src/img/common/logo_group01.svg"  width="76"
+                        height="60" loading="lazy" class=" lazyloaded"> -->
+                        <div style="height: 60px; width: 76px;background-color: antiquewhite;"></div>
+                    <!-- <p>ロイヤルハウジング<br>グループ</p> -->
+                    <p>title</p>
+
                 </a>
             </div>
             <div class="l-footer_navWrap lazyloaded">
@@ -16,7 +19,7 @@
         </p>
         <div class="l-footer_inner sub lazyloaded">
             <p class="l-footer_copy">
-                <small>Copyright (C) karuizawa.</small>
+                <!-- <small>Copyright (C) karuizawa.</small> -->
             </p>
         </div>
     </footer>

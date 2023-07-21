@@ -273,7 +273,9 @@
                 >
                   <div class="l-flex_item js-spAcco lazyloaded">
                     <div class="c-title js-spAccoTitle lazyloaded">
-                      <h2 class="c-titleText">ロイヤルリゾート 軽井沢駅前店</h2>
+                      <!-- <h2 class="c-titleText">ロイヤルリゾート 軽井沢駅前店</h2> -->
+                      <h2 class="c-titleText">title</h2>
+
                     </div>
                     <div class="js-spAccoCont lazyload">
                       <p class="c-lead">
